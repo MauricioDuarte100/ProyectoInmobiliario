@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { motion } from 'framer-motion'
 import type { AppPage } from '../types/simia'
 import { Sparkles } from 'lucide-react'
 import { SimiaBrandMark } from './brand'
@@ -88,25 +87,20 @@ export default function Header({ onNavigate }: HeaderProps) {
         </button>
 
         <div className="hidden items-center gap-2 md:flex">
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-            className="inline-flex items-center gap-2 rounded-full border border-green-trust/12 bg-green-trust/8 px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-green-trust"
+          <span
+            className="inline-flex items-center gap-2 rounded-full border border-green-trust/12 bg-green-trust/8 px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-green-trust border-glow"
           >
             <Sparkles className="h-3.5 w-3.5" />
             IA inmobiliaria
-          </motion.span>
+          </span>
         </div>
 
-        <motion.button
+        <button
           onClick={() => onNavigate('form')}
-          whileHover={{ scale: 1.04, y: -1 }}
-          whileTap={{ scale: 0.97 }}
-          className="btn-primary px-4 py-2 text-sm font-bold"
+          className="btn-primary px-4 py-2 text-sm font-bold cursor-pointer transition-transform hover:scale-105 active:scale-95"
         >
           Evaluar acceso
-        </motion.button>
+        </button>
       </div>
     </header>
   )
