@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { memo, useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
@@ -32,7 +32,7 @@ const accentStyles = {
   },
 } as const
 
-export default function FeatureVectorCard({
+export default memo(function FeatureVectorCard({
   title,
   text,
   eyebrow,
@@ -81,7 +81,7 @@ export default function FeatureVectorCard({
             initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1, duration: 0.4 }}
-            className={`rounded-full px-3 py-1 text-[11px] font-black uppercase tracking-[0.16em] ${style.badge}`}
+            className={`rounded-full px-3 py-1 text-eyebrow ${style.badge}`}
           >
             {eyebrow}
           </motion.span>
@@ -123,7 +123,7 @@ export default function FeatureVectorCard({
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.4 }}
-          className="text-xl font-black text-text-primary"
+          className="text-xl font-bold text-text-primary"
         >
           {title}
         </motion.h3>
@@ -138,4 +138,4 @@ export default function FeatureVectorCard({
       </div>
     </motion.div>
   )
-}
+})

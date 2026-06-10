@@ -1,5 +1,4 @@
 export { default as SimiaBrandMark } from './SimiaBrandMark'
-export { default as SimiaLogoFull } from './SimiaLogoFull'
 export { default as HouseGraphIllustration } from './HouseGraphIllustration'
 export { default as AIParticleField } from './AIParticleField'
 export { default as FamilyHomeConcept } from './FamilyHomeConcept'

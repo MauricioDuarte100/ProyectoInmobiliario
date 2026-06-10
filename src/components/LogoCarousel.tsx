@@ -1,10 +1,12 @@
+import { memo } from 'react'
+
 type LogoCarouselProps = {
   logos: string[]
 }
 
 const logoNames = ['Gobernacion', 'CIM', 'SimIA', 'Desarrollos', 'Inmobiliarias', 'Constructora']
 
-export default function LogoCarousel({ logos }: LogoCarouselProps) {
+export default memo(function LogoCarousel({ logos }: LogoCarouselProps) {
   const track = [...logos, ...logos, ...logos]
 
   return (
@@ -32,4 +34,4 @@ export default function LogoCarousel({ logos }: LogoCarouselProps) {
       </div>
     </section>
   )
-}
+})

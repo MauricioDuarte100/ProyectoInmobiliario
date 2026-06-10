@@ -59,7 +59,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
               <span className="pulse-dot" />
               Mapa de Demanda
             </h2>
-            <p className="text-sm text-gray-500">Gran Posadas - demanda sintetizada por SimIA</p>
+            <p className="text-sm text-ink-soft">Gran Posadas - demanda sintetizada por SimIA</p>
           </div>
           <span className="px-3 py-1 rounded-full bg-green-trust/10 text-green-trust text-xs font-semibold flex items-center gap-1 breather">
             <TrendingUp className="w-3.5 h-3.5" />
@@ -77,7 +77,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
             <DollarSign className="w-5 h-5" />
           </div>
           <div className="relative z-10">
-            <p className="text-xs text-gray-400">Rango de cuota promedio</p>
+            <p className="text-xs text-ink-soft">Rango de cuota promedio</p>
             <p className="text-base font-bold text-text-primary">$280.000 - $520.000</p>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
             <Building2 className="w-5 h-5" />
           </div>
           <div className="relative z-10">
-            <p className="text-xs text-gray-400">Tipologia mas buscada</p>
+            <p className="text-xs text-ink-soft">Tipologia mas buscada</p>
             <p className="text-base font-bold text-text-primary">Lote financiado / Casa evolutiva</p>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
             <MapPin className="w-5 h-5" />
           </div>
           <div className="relative z-10">
-            <p className="text-xs text-gray-400">Zonas con mayor potencial</p>
+            <p className="text-xs text-ink-soft">Zonas con mayor potencial</p>
             <p className="text-base font-bold text-text-primary">Garupa, Itaembe Guazu</p>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
         </div>
       </section>
 
-      <p className="text-center text-xs text-gray-400 pb-8">
+      <p className="text-center text-xs text-ink-soft pb-8">
         Lectura orientativa. No constituye asesoramiento de inversion.
       </p>
     </div>

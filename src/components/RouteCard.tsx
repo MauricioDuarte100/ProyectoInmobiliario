@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { BadgePercent, Building2, Handshake, MapPin, Hammer, Key, HandCoins, Landmark, Sparkles } from 'lucide-react'
 import type { HabitationalRoute } from '../types/simia'
 import { useCinematicHover } from '../hooks/useCinematicHover'
@@ -18,7 +19,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Handshake,
 }
 
-export default function RouteCard({ route, isRecommended }: RouteCardProps) {
+export default memo(function RouteCard({ route, isRecommended }: RouteCardProps) {
   const cardRef = useCinematicHover<HTMLDivElement>()
   const Icon = iconMap[route.icon] ?? Landmark
   const routeColor = route.compatibility >= 80 ? '#1F8A5B' : route.compatibility >= 60 ? '#F59E0B' : '#DC2626'
@@ -48,7 +49,7 @@ export default function RouteCard({ route, isRecommended }: RouteCardProps) {
             <Icon className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="pr-24 text-base font-black text-text-primary">{route.name}</h3>
+            <h3 className="pr-24 text-base font-bold text-text-primary">{route.name}</h3>
             <p className="mt-1 text-sm leading-6 text-ink-soft">{route.benefit}</p>
           </div>
         </div>
@@ -65,7 +66,7 @@ export default function RouteCard({ route, isRecommended }: RouteCardProps) {
         >
           {route.compatibility}% compatible
         </div>
-          <span className="text-right text-xs font-bold text-gray-400">{route.nextStep}</span>
+          <span className="text-right text-xs font-bold text-ink-soft">{route.nextStep}</span>
         </div>
         <div className="h-2 overflow-hidden rounded-full bg-slate-100">
           <div className="h-full rounded-full" style={{ width: `${route.compatibility}%`, backgroundColor: routeColor }} />
@@ -77,4 +78,4 @@ export default function RouteCard({ route, isRecommended }: RouteCardProps) {
       </p>
     </div>
   )
-}
+})

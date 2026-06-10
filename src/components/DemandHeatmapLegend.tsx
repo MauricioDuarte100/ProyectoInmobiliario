@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Flame, Thermometer, Snowflake, TrendingUp } from 'lucide-react'
 import type { ZoneDemand } from '../types/simia'
 
@@ -5,7 +6,7 @@ type DemandHeatmapLegendProps = {
   zoneDemands: ZoneDemand[]
 }
 
-export default function DemandHeatmapLegend({ zoneDemands }: DemandHeatmapLegendProps) {
+export default memo(function DemandHeatmapLegend({ zoneDemands }: DemandHeatmapLegendProps) {
   const maxDemand = Math.max(...zoneDemands.map((z) => z.demandScore))
   
   const getHeatLevel = (score: number) => {
@@ -85,4 +86,4 @@ export default function DemandHeatmapLegend({ zoneDemands }: DemandHeatmapLegend
       </div>
     </div>
   )
-}
+})

@@ -101,7 +101,7 @@ export default function RealEstatePanel({ onBack }: RealEstatePanelProps) {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-bold text-text-primary">Mapa de Demanda</h2>
-              <p className="text-sm text-gray-500">Zonas calientes en Gran Posadas</p>
+              <p className="text-sm text-ink-soft">Zonas calientes en Gran Posadas</p>
             </div>
             <span className="px-3 py-1 rounded-full bg-orange-opp/10 text-orange-opp text-xs font-semibold flex items-center gap-1">
               <TrendingUp className="w-3.5 h-3.5" />

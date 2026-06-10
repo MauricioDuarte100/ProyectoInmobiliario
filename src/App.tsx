@@ -1,53 +1,73 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, lazy, Suspense, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'framer-motion'
-import type { UserProfile, ScoreResult, MatchedProperty, HabitationalRoute, AppPage } from './types/simia'
-import { calculateHabitationalScore } from './utils/scoring'
-import { matchProperties } from './utils/matching'
-import { recommendRoutes } from './utils/routes'
-import { explainScore } from './services/aiClient'
-import { demoProperties } from './data/demoData'
+import type { AppPage } from './types/simia'
+import { useSimiaState } from './hooks/useSimiaState'
 import Header from './components/Header'
 import HomeDemo from './pages/HomeDemo'
 import PrequalificationForm from './pages/PrequalificationForm'
 import ResultsPage from './pages/ResultsPage'
 import RealEstatePanel from './pages/RealEstatePanel'
 import InvestmentPanel from './pages/InvestmentPanel'
+import CitizenDashboard from './pages/CitizenDashboard'
 import FloatingAiAssistant from './components/FloatingAiAssistant'
+import BackToTop from './components/BackToTop'
+import { ToastProvider, useToast } from './components/Toast'
+
+const ChamberDashboard = lazy(() => import('./pages/ChamberDashboard'))
+const GovernmentDashboard = lazy(() => import('./pages/GovernmentDashboard'))
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function App() {
+function DashboardFallback() {
+  return (
+    <div className="flex items-center justify-center py-32">
+      <div className="flex items-center gap-2 rounded-2xl bg-white/80 px-6 py-4 text-sm font-semibold text-ink-soft shadow-sm">
+        <svg className="h-5 w-5 animate-spin text-green-trust" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeDasharray="50" strokeLinecap="round" opacity="0.25" />
+        </svg>
+        Cargando panel...
+      </div>
+    </div>
+  )
+}
+
+const pageOrder: AppPage[] = ['home', 'form', 'results', 'citizen', 'realestate', 'chamber', 'government', 'investment']
+
+function AppInner() {
   const pageRef = useRef<HTMLElement | null>(null)
-  const [currentPage, setCurrentPage] = useState<AppPage>('home')
-  const [profile, setProfile] = useState<UserProfile | null>(null)
-  const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null)
-  const [aiMessage, setAiMessage] = useState<string | null>(null)
-  const [matchedProperties, setMatchedProperties] = useState<MatchedProperty[]>([])
-  const [recommendedRoutes, setRecommendedRoutes] = useState<HabitationalRoute[]>([])
+  const {
+    currentPage,
+    prevPage,
+    profile,
+    scoreResult,
+    aiMessage,
+    matchedProperties,
+    recommendedRoutes,
+    calculating,
+    handleNavigate,
+    handleCalculate,
+    handleBack,
+  } = useSimiaState()
+  const { addToast } = useToast()
 
-  const handleNavigate = (page: AppPage) => {
-    setCurrentPage(page)
+  useEffect(() => {
+    if (currentPage === 'results' && scoreResult) {
+      addToast('Precalificacion completada exitosamente', 'success')
+    }
+  }, [currentPage, scoreResult, addToast])
+
+  const getDirection = (from: AppPage | null, to: AppPage): { x: number; scale: number } => {
+    if (!from) return { x: 0, scale: 1 }
+    const fromIdx = pageOrder.indexOf(from)
+    const toIdx = pageOrder.indexOf(to)
+    if (fromIdx < toIdx) return { x: 40, scale: 0.97 }
+    if (fromIdx > toIdx) return { x: -40, scale: 0.97 }
+    return { x: 0, scale: 1 }
   }
 
-  const handleCalculate = (userProfile: UserProfile) => {
-    const score = calculateHabitationalScore(userProfile)
-    const routes = recommendRoutes(userProfile, score)
-    const matches = matchProperties(userProfile, score, demoProperties)
-    const message = explainScore(userProfile, score)
-
-    setProfile(userProfile)
-    setScoreResult(score)
-    setMatchedProperties(matches)
-    setRecommendedRoutes(routes)
-    setAiMessage(message)
-    setCurrentPage('results')
-  }
-
-  const handleBack = () => {
-    setCurrentPage('form')
-  }
+  const dir = getDirection(prevPage, currentPage)
 
   useLayoutEffect(() => {
     const page = pageRef.current
@@ -154,16 +174,19 @@ export default function App() {
   }, [currentPage])
 
   const pageMotion = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.42, ease: [0.16, 1, 0.3, 1] as const } },
-    exit: { opacity: 0, y: -16, transition: { duration: 0.22, ease: [0.16, 1, 0.3, 1] as const } },
+    initial: { opacity: 0, x: dir.x, scale: dir.scale },
+    animate: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const } },
+    exit: { opacity: 0, x: -dir.x * 0.6, scale: 0.98, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] as const } },
   }
 
   return (
     <div className="app-shell">
+      <a href="#main-content" className="skip-to-content">Saltar al contenido principal</a>
       <Header currentPage={currentPage} onNavigate={handleNavigate} />
+
       <main
         ref={pageRef}
+        id="main-content"
         className={
           currentPage === 'home'
             ? 'relative w-full'
@@ -173,7 +196,7 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div key={currentPage} variants={pageMotion} initial="initial" animate="animate" exit="exit">
             {currentPage === 'home' && <HomeDemo onNavigate={handleNavigate} />}
-            {currentPage === 'form' && <PrequalificationForm onCalculate={handleCalculate} />}
+            {currentPage === 'form' && <PrequalificationForm onCalculate={handleCalculate} calculating={calculating} />}
             {currentPage === 'results' && profile && scoreResult && aiMessage && (
               <ResultsPage
                 profile={profile}
@@ -182,15 +205,75 @@ export default function App() {
                 matchedProperties={matchedProperties}
                 recommendedRoutes={recommendedRoutes}
                 onBack={handleBack}
-                onViewRealEstate={() => setCurrentPage('realestate')}
+                onViewRealEstate={() => handleNavigate('realestate')}
+                onViewChamber={() => handleNavigate('chamber')}
+                onViewCitizen={() => handleNavigate('citizen')}
               />
             )}
-            {currentPage === 'realestate' && <RealEstatePanel onBack={() => setCurrentPage('home')} />}
-            {currentPage === 'investment' && <InvestmentPanel onBack={() => setCurrentPage('home')} />}
+            {currentPage === 'realestate' && <RealEstatePanel onBack={() => handleNavigate('home')} />}
+            {currentPage === 'investment' && <InvestmentPanel onBack={() => handleNavigate('home')} />}
+            {currentPage === 'chamber' && (
+              <Suspense fallback={<DashboardFallback />}>
+                <ChamberDashboard onBack={() => handleNavigate('home')} />
+              </Suspense>
+            )}
+            {currentPage === 'citizen' && (
+              profile && scoreResult ? (
+                <CitizenDashboard
+                  profile={profile}
+                  scoreResult={scoreResult}
+                  onBack={() => handleNavigate('results')}
+                />
+              ) : (
+                <div className="mx-auto max-w-xl px-4 py-20 text-center space-y-6">
+                  <div className="premium-card rounded-3xl p-8 border-glow shadow-lg">
+                    <div className="text-6xl mb-4" aria-hidden="true">🏠</div>
+                    <h1 className="text-2xl font-black text-text-primary">Mi Panel Ciudadano</h1>
+                    <p className="text-ink-soft mt-3 leading-relaxed">
+                      Para ver tu expediente, hacer seguimiento de tu caso y simular escenarios, primero completa la precalificacion habitacional.
+                    </p>
+                    <p className="text-xs text-ink-soft/60 mt-2">
+                      Solo te toma 2 minutos. Ingresa tus datos de ingresos, ahorros y zona deseada.
+                    </p>
+                    <button
+                      onClick={() => handleNavigate('form')}
+                      className="btn-primary mt-6 inline-flex items-center gap-2 px-6 py-3 text-sm font-black cursor-pointer shadow-lg shadow-green-trust/20"
+                    >
+                      Comenzar precalificacion
+                    </button>
+                  </div>
+                  <p className="text-xs text-ink-soft/50">
+                    Fuente de datos de precios: Zonaprop (junio 2026). Programas: IPRODHA, Credito Hipotecario Nacion, Banco Macro.
+                  </p>
+                </div>
+              )
+            )}
+            {currentPage === 'government' && (
+              <Suspense fallback={<DashboardFallback />}>
+                <GovernmentDashboard onBack={() => handleNavigate('home')} />
+              </Suspense>
+            )}
           </motion.div>
         </AnimatePresence>
       </main>
-      {currentPage !== 'home' && <FloatingAiAssistant profile={profile} scoreResult={scoreResult} />}
+
+      {currentPage !== 'home' && (
+        <FloatingAiAssistant
+          profile={profile}
+          scoreResult={scoreResult}
+          matchedProperties={matchedProperties}
+          recommendedRoutes={recommendedRoutes}
+        />
+      )}
+      <BackToTop />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <ToastProvider>
+      <AppInner />
+    </ToastProvider>
   )
 }

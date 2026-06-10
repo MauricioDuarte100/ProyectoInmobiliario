@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import {
   ArrowRight,
   BadgePercent,
@@ -27,7 +28,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   WalletCards,
 }
 
-export default function FinancingProgramCard({ program, featured }: FinancingProgramCardProps) {
+export default memo(function FinancingProgramCard({ program, featured }: FinancingProgramCardProps) {
   const Icon = iconMap[program.icon] ?? WalletCards
 
   return (
@@ -43,10 +44,10 @@ export default function FinancingProgramCard({ program, featured }: FinancingPro
               <Icon className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.14em] text-green-trust">
+              <p className="text-eyebrow text-green-trust">
                 {program.provider}
               </p>
-              <h3 className="mt-1 text-base font-black leading-6 text-text-primary">{program.name}</h3>
+              <h3 className="mt-1 text-base font-bold leading-6 text-text-primary">{program.name}</h3>
             </div>
           </div>
           <span className="shrink-0 rounded-full bg-green-trust/10 px-3 py-1 text-xs font-black text-green-trust">
@@ -91,4 +92,4 @@ export default function FinancingProgramCard({ program, featured }: FinancingPro
       </div>
     </article>
   )
-}
+})

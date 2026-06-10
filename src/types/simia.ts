@@ -78,6 +78,10 @@ export type ZoneDemand = {
   averagePaymentCapacity: number;
   preferredProduct: string;
   opportunity: string;
+  solicitudes: number;
+  avgSavings: number;
+  avgCuota: number;
+  topNeed: string;
 };
 
 export type RealEstateLead = {
@@ -88,7 +92,7 @@ export type RealEstateLead = {
   alerts: string[];
 };
 
-export type AppPage = 'home' | 'form' | 'results' | 'realestate' | 'investment';
+export type AppPage = 'home' | 'form' | 'results' | 'realestate' | 'investment' | 'chamber' | 'citizen' | 'government';
 
 export type AppState = {
   currentPage: AppPage;
@@ -97,4 +101,94 @@ export type AppState = {
   aiMessage: string | null;
   matchedProperties: MatchedProperty[];
   recommendedRoutes: HabitationalRoute[];
+};
+
+export type UrgencyLevel = 'verde' | 'amarillo' | 'rojo';
+
+export type HousingRouteCategory =
+  | 'Compra inmediata'
+  | 'Preventa financiada'
+  | 'Credito complementario'
+  | 'Lote con servicios'
+  | 'Construccion progresiva'
+  | 'Refaccion/ampliacion'
+  | 'Alquiler con opcion a compra'
+  | 'Asistencia prioritaria';
+
+export type CitizenDiagnosis = {
+  score: number;
+  urgency: UrgencyLevel;
+  route: HousingRouteCategory;
+  explanation: string;
+  nextStep: string;
+  chamberAction: string;
+  governmentAction: string;
+};
+
+export type FinancialGap = {
+  targetValue: number;
+  availableSavings: number;
+  entryGap: number;
+  possibleMonthly: number;
+  diagnosis: string;
+  suggestedAction: string;
+};
+
+export type ChamberDecision = {
+  title: string;
+  description: string;
+  priority: 'alta' | 'media' | 'baja';
+  actors: string[];
+  impact: string;
+};
+
+export type AgreementProposal = {
+  objective: string;
+  suggestedZone: string;
+  motivation: string;
+  actors: string[];
+  initialAction: string;
+};
+
+export type PrivateChance = {
+  zone: string;
+  interested: number;
+  profile: string;
+  avgSavings: number;
+  avgCuota: number;
+  recommendation: string;
+};
+
+export type ExecutiveReport = {
+  totalSolicitudes: number;
+  findings: string[];
+  recommendation: string;
+  stats: {
+    necesitaFinanciacion: number;
+    puedePreventa: number;
+    buscaLote: number;
+    asistenciaPrioritaria: number;
+    inversores: number;
+    constructoras: number;
+  };
+};
+
+export type ProjectRecommendation = {
+  zone: string;
+  solicitudes: number;
+  avgSavings: number;
+  avgCuota: number;
+  topNeed: string;
+  suggestedProject: string;
+  model: string;
+  reason: string;
+};
+
+export type CityDemand = {
+  city: string;
+  solicitudes: number;
+  avgSavings: number;
+  avgCuota: number;
+  topNeed: string;
+  opportunity: string;
 };

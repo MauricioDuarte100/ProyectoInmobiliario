@@ -1,3 +1,5 @@
+import { memo } from 'react'
+import type { ComponentType } from 'react'
 import { MapPin, Bed, Ruler, Calendar, CreditCard, Building2, Home, Warehouse } from 'lucide-react'
 import type { Property } from '../types/simia'
 import { formatCurrency, formatArea } from '../utils/formatting'
@@ -9,8 +11,6 @@ type PropertyCardProps = {
   matchReasons?: string[]
   suggestedRoute?: string
 }
-
-import type { ComponentType } from 'react'
 
 const typeIcons: Record<string, ComponentType<{ className?: string }>> = {
   Casa: Home,
@@ -26,7 +26,7 @@ const typeGradients: Record<string, string> = {
   Lote: 'from-slate-950 via-green-trust to-lime-200',
 }
 
-export default function PropertyCard({
+export default memo(function PropertyCard({
   property,
   compatibility,
   matchReasons,
@@ -47,36 +47,37 @@ export default function PropertyCard({
   return (
     <div ref={cardRef} className="gsap-card premium-card group rounded-3xl" style={{ transformStyle: 'preserve-3d' }}>
       <div
-        className={`relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br ${gradient}`}
+        className={`relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br ${gradient} rounded-t-3xl`}
       >
         <img
           src={property.imageUrl}
           alt={property.title}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-600 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.20),transparent_36%),linear-gradient(180deg,rgba(11,18,32,0.02)_0%,rgba(11,18,32,0.18)_52%,rgba(11,18,32,0.74)_100%)]" />
-        <div className="absolute right-5 top-14 rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur-md">
-          <Icon className="relative h-8 w-8 text-white/70 transition-transform duration-300 group-hover:scale-110" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.0)_0%,rgba(11,18,32,0.08)_30%,rgba(11,18,32,0.45)_65%,rgba(11,18,32,0.82)_100%)]" />
+        <div className="absolute right-4 top-14 rounded-2xl border border-white/18 bg-white/10 p-3 backdrop-blur-xl shadow-lg transition-transform duration-300 group-hover:scale-110">
+          <Icon className="relative h-8 w-8 text-white/90 drop-shadow-[0_3px_6px_rgba(0,0,0,0.35)]" />
         </div>
-        <span className="absolute left-4 top-4 rounded-full bg-white/88 px-3 py-1 text-xs font-black text-text-primary shadow-sm backdrop-blur-sm">
+        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-black text-text-primary shadow-md backdrop-blur-sm">
           {property.type}
         </span>
         {suggestedRoute && (
-          <span className="absolute right-4 top-4 max-w-[52%] rounded-full bg-night/82 px-3 py-1 text-right text-xs font-black text-white shadow-sm backdrop-blur-sm">
+          <span className="absolute right-4 top-4 max-w-[52%] rounded-full bg-night/85 px-3 py-1.5 text-right text-xs font-black text-white shadow-md backdrop-blur-sm">
             {suggestedRoute}
           </span>
         )}
         <div className="absolute bottom-4 left-4 right-4">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/70">{property.zone}</p>
-          <p className="mt-1 text-2xl font-black text-white">{formatCurrency(property.price)}</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">{property.zone}</p>
+          <p className="mt-1 text-2xl font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">{formatCurrency(property.price)}</p>
         </div>
       </div>
 
       <div className="relative z-10 p-5">
-        <h3 className="text-base font-black leading-tight text-text-primary">
+        <h3 className="text-base font-black leading-tight text-text-primary group-hover:text-green-trust transition-colors duration-300">
           {property.title}
         </h3>
-        <div className="mt-1 flex items-center gap-1 text-sm font-medium text-ink-soft">
+        <div className="mt-1.5 flex items-center gap-1 text-sm font-medium text-ink-soft">
           <MapPin className="w-3.5 h-3.5" />
           <span>
             {property.zone}, {property.city}
@@ -85,14 +86,14 @@ export default function PropertyCard({
 
         <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-ink-soft">
           <div className="rounded-2xl bg-slate-50 p-3">
-            <div className="mb-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.08em] text-gray-400">
+            <div className="mb-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
             <CreditCard className="w-3.5 h-3.5" />
               Cuota
             </div>
             <span className="font-black text-text-primary">{formatCurrency(property.estimatedMonthlyPayment)}</span>
           </div>
           <div className="rounded-2xl bg-slate-50 p-3">
-            <div className="mb-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.08em] text-gray-400">
+            <div className="mb-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
             <Calendar className="w-3.5 h-3.5" />
               Entrega
             </div>
@@ -121,7 +122,7 @@ export default function PropertyCard({
               {compatibility}% compatible
             </span>
             {property.financingType && (
-                <span className="text-xs font-bold text-gray-400">{property.financingType}</span>
+                <span className="text-xs font-bold text-ink-soft">{property.financingType}</span>
             )}
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-slate-100">
@@ -143,4 +144,4 @@ export default function PropertyCard({
       </div>
     </div>
   )
-}
+})

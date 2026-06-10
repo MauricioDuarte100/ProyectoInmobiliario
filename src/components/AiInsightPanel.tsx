@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Bot, Loader2, Sparkles } from 'lucide-react'
 
 type AiInsightPanelProps = {
@@ -5,7 +6,7 @@ type AiInsightPanelProps = {
   isLoading?: boolean
 }
 
-export default function AiInsightPanel({ message, isLoading }: AiInsightPanelProps) {
+export default memo(function AiInsightPanel({ message, isLoading }: AiInsightPanelProps) {
   return (
     <div className="gsap-card relative overflow-hidden rounded-3xl border border-blue-tech/15 bg-white p-5 shadow-[0_20px_60px_rgba(37,99,235,0.14)]">
       <div className="absolute right-4 top-4 text-blue-tech/10">
@@ -31,4 +32,4 @@ export default function AiInsightPanel({ message, isLoading }: AiInsightPanelPro
       )}
     </div>
   )
-}
+})

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { ZoneDemand } from '../types/simia'
@@ -22,7 +22,7 @@ function demandColor(score: number) {
   return '#2563EB'
 }
 
-export default function SimulatedMap({ zoneDemands }: SimulatedMapProps) {
+export default memo(function SimulatedMap({ zoneDemands }: SimulatedMapProps) {
   const mapElementRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<L.Map | null>(null)
 
@@ -110,4 +110,4 @@ export default function SimulatedMap({ zoneDemands }: SimulatedMapProps) {
       </div>
     </div>
   )
-}
+})

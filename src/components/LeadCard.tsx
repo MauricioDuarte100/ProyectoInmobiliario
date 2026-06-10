@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Phone, MapPin, AlertTriangle, TrendingUp, Home } from 'lucide-react'
 import type { RealEstateLead } from '../types/simia'
 import { formatCurrency } from '../utils/formatting'
@@ -7,7 +8,7 @@ type LeadCardProps = {
   lead: RealEstateLead
 }
 
-export default function LeadCard({ lead }: LeadCardProps) {
+export default memo(function LeadCard({ lead }: LeadCardProps) {
   const { user, score, topProperty, contactProbability, alerts } = lead
   const scoreColor = score.score >= 70 ? '#1F8A5B' : score.score >= 40 ? '#F59E0B' : '#DC2626'
   const contactColor = contactProbability >= 80 ? '#1F8A5B' : contactProbability >= 60 ? '#F59E0B' : '#DC2626'
@@ -42,7 +43,7 @@ export default function LeadCard({ lead }: LeadCardProps) {
 
         <div className="mt-4 rounded-2xl border border-gray-100 bg-gray-50 p-3">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-500">Propiedad sugerida</span>
+            <span className="text-ink-soft">Propiedad sugerida</span>
             <span className="max-w-[55%] text-right font-black text-text-primary">{topProperty.title}</span>
           </div>
           <div className="flex items-center justify-between text-sm mt-1">
@@ -64,7 +65,7 @@ export default function LeadCard({ lead }: LeadCardProps) {
               {contactProbability}%
             </span>
             </div>
-            <span className="text-xs font-bold text-gray-400">prob. contacto</span>
+            <span className="text-xs font-bold text-ink-soft">prob. contacto</span>
           </div>
 
           <div className="rounded-2xl bg-white/80 p-3 text-sm shadow-sm">
@@ -72,7 +73,7 @@ export default function LeadCard({ lead }: LeadCardProps) {
             <TrendingUp className="w-3.5 h-3.5 text-blue-tech" />
               <span className="font-black text-blue-tech">{formatCurrency(score.maxMonthlyPayment)}</span>
             </div>
-            <span className="text-xs font-bold text-gray-400">cuota max.</span>
+            <span className="text-xs font-bold text-ink-soft">cuota max.</span>
           </div>
         </div>
 
@@ -92,4 +93,4 @@ export default function LeadCard({ lead }: LeadCardProps) {
       </div>
     </div>
   )
-}
+})
