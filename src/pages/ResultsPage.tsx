@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CircleCheck, AlertCircle, ArrowRight, RefreshCw, Eye, Home, Sparkles, User } from 'lucide-react'
+import { CircleCheck, AlertCircle, ArrowRight, RefreshCw, Eye, Home, Sparkles } from 'lucide-react'
 import type { UserProfile, ScoreResult, MatchedProperty, HabitationalRoute } from '../types/simia'
 
 import ScoreRing from '../components/ScoreRing'
