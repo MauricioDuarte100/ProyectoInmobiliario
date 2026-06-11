@@ -112,10 +112,10 @@ export default function AgenticHousingDemo() {
           <Brain className="w-4 h-4" /> Motor Agentico Habitacional
         </p>
         <h2 className="mt-2 text-3xl font-bold text-slate-950">
-          Cimia interpreta una necesidad y coordina agentes especializados
+          CIM-IA interpreta una necesidad y coordina agentes especializados
         </h2>
         <p className="mt-3 max-w-3xl text-slate-700">
-          El ciudadano expresa su necesidad por audio. Cimia transcribe,
+          El ciudadano expresa su necesidad por audio. CIM-IA transcribe,
           detecta intención y activa agentes para encontrar oportunidades,
           financiación, lotes, inmobiliarias y convenios.
         </p>
@@ -202,7 +202,7 @@ export default function AgenticHousingDemo() {
             className="mt-6 rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-800 flex items-center gap-2"
           >
             <Brain className="w-5 h-5" />
-            Activar agentes Cimia
+            Activar agentes CIM-IA
           </button>
         </motion.div>
       )}
@@ -219,8 +219,10 @@ export default function AgenticHousingDemo() {
       {(demoStep === "agents-running" ||
         demoStep === "results" ||
         demoStep === "final-report") && (
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3 relative">
-          {/* Opcional: Líneas decorativas en el fondo */}
+        <div className="mt-8">
+          <AgenticRobotScene />
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3 relative">
           {agents.map((agent, index) => (
             <motion.div
               key={agent.id}
@@ -231,6 +233,7 @@ export default function AgenticHousingDemo() {
               <AgentCard agent={agent} />
             </motion.div>
           ))}
+          </div>
         </div>
       )}
 
@@ -246,6 +249,123 @@ export default function AgenticHousingDemo() {
         </motion.div>
       )}
     </section>
+  );
+}
+
+function AgenticRobotScene() {
+  const robots = [
+    { id: "capture", x: 80, y: 92, color: "#3b82f6", label: "Captura" },
+    { id: "intent", x: 210, y: 52, color: "#06b6d4", label: "Intencion" },
+    { id: "core", x: 340, y: 88, color: "#2563eb", label: "CIM-IA" },
+    { id: "supply", x: 470, y: 52, color: "#10b981", label: "Oferta" },
+    { id: "route", x: 600, y: 92, color: "#8b5cf6", label: "Ruta" },
+  ];
+
+  return (
+    <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_transparent_36%),linear-gradient(135deg,#081120_0%,#13203e_45%,#0f172a_100%)] p-5 shadow-xl shadow-slate-300/20">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-sky-200">
+            Orquestacion visual
+          </p>
+          <h3 className="mt-2 !text-white text-2xl font-bold">
+            Los agentes trabajan como una cuadrilla coordinada
+          </h3>
+          <p className="mt-2 max-w-2xl text-sm text-slate-300">
+            Cada robot representa una tarea especializada. Cuando CIM-IA lanza la simulacion,
+            el flujo va pasando por captura, intencion, oferta, credito y ruta recomendada.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2 text-xs font-semibold text-slate-200">
+          <span className="rounded-full border border-white/15 bg-white/8 px-3 py-1.5 backdrop-blur">
+            Audio
+          </span>
+          <span className="rounded-full border border-cyan-400/25 bg-cyan-400/10 px-3 py-1.5 text-cyan-100">
+            Analisis
+          </span>
+          <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-emerald-100">
+            Match habitacional
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-5 rounded-[24px] border border-white/10 bg-slate-950/35 p-3 backdrop-blur-sm">
+        <svg viewBox="0 0 680 170" className="h-auto w-full">
+          <defs>
+            <linearGradient id="agentBeam" x1="0%" x2="100%" y1="0%" y2="0%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.15" />
+              <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#34d399" stopOpacity="0.2" />
+            </linearGradient>
+            <filter id="softGlow">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <path
+            d="M80 92 C 135 40, 155 40, 210 52 S 290 95, 340 88 S 420 30, 470 52 S 555 122, 600 92"
+            fill="none"
+            stroke="url(#agentBeam)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+
+          <motion.circle
+            cx="80"
+            cy="92"
+            r="4"
+            fill="#7dd3fc"
+            filter="url(#softGlow)"
+            animate={{ cx: [80, 210, 340, 470, 600], cy: [92, 52, 88, 52, 92] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {robots.map((robot, index) => (
+            <g key={robot.id} transform={`translate(${robot.x}, ${robot.y})`}>
+              <motion.circle
+                r="34"
+                fill={robot.color}
+                opacity="0.12"
+                animate={{ scale: [0.9, 1.15, 0.9], opacity: [0.1, 0.24, 0.1] }}
+                transition={{ duration: 2.6, repeat: Infinity, delay: index * 0.2 }}
+              />
+              <motion.g
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 2.4, repeat: Infinity, delay: index * 0.12 }}
+              >
+                <rect x="-18" y="-16" width="36" height="28" rx="11" fill="#e2e8f0" />
+                <rect x="-11" y="-8" width="8" height="8" rx="3" fill={robot.color} />
+                <rect x="3" y="-8" width="8" height="8" rx="3" fill={robot.color} />
+                <rect x="-10" y="4" width="20" height="3" rx="2" fill="#1e293b" opacity="0.85" />
+                <rect x="-14" y="-25" width="28" height="5" rx="2.5" fill="#94a3b8" />
+                <line x1="0" y1="-20" x2="0" y2="-30" stroke="#cbd5e1" strokeWidth="2.5" />
+                <circle cx="0" cy="-33" r="4.5" fill={robot.color} />
+                <line x1="-22" y1="-2" x2="-32" y2="8" stroke="#94a3b8" strokeWidth="3" strokeLinecap="round" />
+                <line x1="22" y1="-2" x2="32" y2="8" stroke="#94a3b8" strokeWidth="3" strokeLinecap="round" />
+                <line x1="-8" y1="12" x2="-14" y2="24" stroke="#94a3b8" strokeWidth="3" strokeLinecap="round" />
+                <line x1="8" y1="12" x2="14" y2="24" stroke="#94a3b8" strokeWidth="3" strokeLinecap="round" />
+              </motion.g>
+              <text
+                x="0"
+                y="54"
+                textAnchor="middle"
+                fill="#e2e8f0"
+                fontSize="12"
+                fontWeight="700"
+                letterSpacing="0.4"
+              >
+                {robot.label}
+              </text>
+            </g>
+          ))}
+        </svg>
+      </div>
+    </div>
   );
 }
 
@@ -295,17 +415,24 @@ function AgentCard({ agent }: { agent: any }) {
 
   return (
     <div
-      className={`rounded-2xl border p-5 shadow-sm transition-all duration-500 ${
+      className={`rounded-[26px] border p-5 shadow-sm transition-all duration-500 ${
         isRunning
-          ? "border-blue-300 bg-blue-50 scale-[1.02]"
+          ? "border-blue-300 bg-[linear-gradient(180deg,rgba(219,234,254,0.9),rgba(239,246,255,0.95))] scale-[1.02] shadow-lg shadow-blue-200/50"
           : isCompleted
-          ? "border-green-300 bg-green-50"
-          : "border-slate-200 bg-white opacity-60"
+          ? "border-emerald-300 bg-[linear-gradient(180deg,rgba(220,252,231,0.95),rgba(240,253,244,0.98))] shadow-md shadow-emerald-100/50"
+          : "border-slate-200 bg-white/90 opacity-70"
       }`}
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-lg ${isRunning ? 'bg-blue-100 text-blue-700' : isCompleted ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-500'}`}>
+          <div className={`relative p-2.5 rounded-xl ${isRunning ? 'bg-blue-100 text-blue-700' : isCompleted ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`}>
+            {isRunning && (
+              <motion.span
+                className="absolute inset-0 rounded-xl border border-blue-300"
+                animate={{ scale: [1, 1.16, 1], opacity: [0.5, 0, 0.5] }}
+                transition={{ duration: 1.4, repeat: Infinity }}
+              />
+            )}
             {getAgentIcon(agent.id)}
           </div>
           <h3 className="font-bold text-slate-900">{agent.name}</h3>
@@ -322,25 +449,27 @@ function AgentCard({ agent }: { agent: any }) {
               ◌
             </motion.span>
           )}
-          {isCompleted && <span className="text-green-500">✓</span>}
+          {isCompleted && <span className="text-emerald-500">✓</span>}
         </div>
       </div>
       
       <p className="mt-4 text-sm text-slate-700 line-clamp-2">{agent.description}</p>
 
       <div className="mt-5 h-2 overflow-hidden rounded-full bg-slate-200">
-        <div
+        <motion.div
           className={`h-full transition-all duration-700 ${
-            isCompleted ? "bg-green-500" : "bg-blue-500"
+            isCompleted ? "bg-emerald-500" : "bg-blue-500"
           }`}
           style={{ width: `${agent.progress}%` }}
+          animate={isRunning ? { opacity: [0.7, 1, 0.7] } : undefined}
+          transition={isRunning ? { duration: 1.1, repeat: Infinity } : undefined}
         />
       </div>
 
       <p className="mt-4 h-5 text-sm font-medium text-slate-800">
         {isPending && "Pendiente de activación"}
         {isRunning && "Analizando información disponible..."}
-        {isCompleted && <span className="text-green-700">{agent.result}</span>}
+        {isCompleted && <span className="text-emerald-700">{agent.result}</span>}
       </p>
     </div>
   );
@@ -374,58 +503,63 @@ function ResultMetric({ value, label }: { value: string; label: string }) {
 
 function FinalReportPanel() {
   return (
-    <div className="mt-8 rounded-3xl bg-slate-900 p-8 text-white shadow-2xl overflow-hidden relative">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+    <div className="relative mt-8 overflow-hidden rounded-[30px] border border-slate-700/70 bg-[linear-gradient(145deg,#081120_0%,#111c35_46%,#15264a_100%)] p-8 text-white shadow-2xl shadow-slate-900/30">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.16),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.16),transparent_28%)]"></div>
+      <div className="absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-sky-400/10 blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 h-64 w-64 translate-y-1/2 -translate-x-1/2 rounded-full bg-indigo-400/10 blur-3xl"></div>
       
       <div className="relative z-10">
-        <p className="text-sm font-bold tracking-widest text-blue-400 uppercase flex items-center gap-2">
-          <FileText className="w-4 h-4" /> Informe Agentico Cimia
+        <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-sky-300">
+          <FileText className="w-4 h-4" /> Informe Agentico CIM-IA
         </p>
 
-        <h3 className="mt-3 text-3xl font-bold">
+        <h3 className="mt-3 text-3xl font-bold !text-white">
           Ruta habitacional recomendada
         </h3>
 
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
+          El motor consolidó señales de mercado, financiación y oferta validada para proponer
+          una salida concreta y explicable.
+        </p>
+
         <div className="mt-8 grid gap-5 md:grid-cols-2">
-          <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-blue-200 uppercase tracking-wider mb-2">Perfil detectado</p>
-            <p className="text-lg font-semibold text-white">
+          <div className="rounded-[24px] border border-sky-200/10 bg-white/8 p-6 backdrop-blur-md shadow-lg shadow-slate-950/20">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.14em] text-sky-200">Perfil detectado</p>
+            <p className="text-xl font-semibold text-slate-50">
               Comprador inicial con necesidad de financiación.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-blue-200 uppercase tracking-wider mb-2">Ruta recomendada</p>
-            <p className="text-lg font-semibold text-white">
+          <div className="rounded-[24px] border border-sky-200/10 bg-white/8 p-6 backdrop-blur-md shadow-lg shadow-slate-950/20">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.14em] text-sky-200">Ruta recomendada</p>
+            <p className="text-xl font-semibold text-slate-50">
               Lote financiado o vivienda inicial mediante inmobiliaria adherida.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-blue-200 uppercase tracking-wider mb-2">Próxima acción</p>
-            <p className="text-lg font-semibold text-white">
+          <div className="rounded-[24px] border border-sky-200/10 bg-white/8 p-6 backdrop-blur-md shadow-lg shadow-slate-950/20">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.14em] text-sky-200">Proxima accion</p>
+            <p className="text-xl font-semibold text-slate-50">
               Derivar a operador validado y generar expediente habitacional.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-blue-200 uppercase tracking-wider mb-2">Impacto institucional</p>
-            <p className="text-lg font-semibold text-white">
+          <div className="rounded-[24px] border border-sky-200/10 bg-white/8 p-6 backdrop-blur-md shadow-lg shadow-slate-950/20">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.14em] text-sky-200">Impacto institucional</p>
+            <p className="text-xl font-semibold text-slate-50">
               La Cámara centraliza demanda, ordena oferta y genera trazabilidad.
             </p>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/10 flex flex-wrap gap-4">
-          <button className="rounded-xl bg-blue-500 hover:bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-500/20 transition-all">
+        <div className="mt-8 flex flex-wrap gap-4 border-t border-white/12 pt-8">
+          <button className="rounded-xl bg-[linear-gradient(135deg,#3b82f6,#2563eb)] px-6 py-3 font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:brightness-110">
             Generar expediente
           </button>
-          <button className="rounded-xl border border-white/20 hover:bg-white/10 px-6 py-3 font-semibold text-white transition-all">
+          <button className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold text-slate-50 transition-all hover:bg-white/10">
             Enviar a inmobiliaria adherida
           </button>
-          <button className="rounded-xl border border-white/20 hover:bg-white/10 px-6 py-3 font-semibold text-white transition-all">
+          <button className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold text-slate-50 transition-all hover:bg-white/10">
             Ver oportunidades detectadas
           </button>
         </div>
