@@ -38,7 +38,7 @@ export default function ScenarioSimulator({ profile, baseScore }: Props) {
   const propertyDelta = simulatedScore.maxPropertyValue - baseScore.maxPropertyValue
 
   const metricChange = (v: number) => {
-    if (v > 0) return 'text-green-trust'
+    if (v > 0) return 'text-brand-red'
     if (v < 0) return 'text-orange-opp'
     return 'text-ink-soft'
   }
@@ -127,8 +127,8 @@ export default function ScenarioSimulator({ profile, baseScore }: Props) {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-br from-night to-slate-800 p-5 text-white shadow-xl relative overflow-hidden">
-            <div className="hero-orb hero-orb-green" style={{ width: '100px', height: '100px', top: '-10%', right: '-10%', opacity: 0.2 }} />
+          <div className="rounded-2xl bg-gradient-to-br from-night via-blue-900/40 to-blue-950 p-5 text-white shadow-xl relative overflow-hidden">
+            <div className="hero-orb hero-orb-red" style={{ width: '100px', height: '100px', top: '-10%', right: '-10%', opacity: 0.2 }} />
             <div className="hero-orb hero-orb-blue" style={{ width: '80px', height: '80px', bottom: '-10%', left: '-5%', opacity: 0.15 }} />
             <div className="relative z-10 space-y-4">
               <h3 className="text-sm font-black uppercase tracking-[0.12em] text-emerald-300">Resultado simulado</h3>

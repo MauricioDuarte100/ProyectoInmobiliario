@@ -21,6 +21,7 @@ import LogoCarousel from '../components/LogoCarousel'
 import FeatureVectorCard from '../components/FeatureVectorCard'
 import { AIParticleField, FamilyHomeConcept } from '../components/brand'
 import AgenticHousingDemo from '../components/AgenticHousingDemo'
+import logoMain from '../../assets/logoMain.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -46,7 +47,7 @@ const featureCards = [
     text: 'La IA traduce ingresos, ahorro, alquiler y deudas en una lectura simple: capacidad de cuota, monto posible y motivos del resultado.',
     eyebrow: 'Scoring IA',
     accent: 'green' as const,
-    icon: <Sparkles className="h-5 w-5 text-green-trust" />,
+    icon: <Sparkles className="h-5 w-5 text-brand-red" />,
   },
   {
     title: 'Ruta recomendada de acceso',
@@ -77,16 +78,16 @@ function TypingReveal({ text, className = '', delay = 0 }: { text: string; class
     const el = containerRef.current
     if (!el) return
     const words = text.split(' ')
-    el.innerHTML = words.map(w => `<span class="inline-block opacity-0 translate-y-4 filter blur-[2px] transition-all duration-300 font-display font-black" style="color:inherit">${w}</span>`).join(' ')
+    el.innerHTML = words.map(w => `<span class="inline-block opacity-0 translate-y-3 transition-all duration-200 font-display font-black" style="color:inherit;text-shadow:0 10px 24px rgba(0,0,0,0.32)">${w}</span>`).join(' ')
     const ctx = gsap.context(() => {
       gsap.to(el.children, {
         opacity: 1,
         y: 0,
-        filter: 'blur(0px)',
-        duration: 0.8,
-        stagger: 0.05,
-        ease: 'power4.out',
+        duration: 0.55,
+        stagger: 0.045,
+        ease: 'power3.out',
         delay: delay / 1000,
+        clearProps: 'transform',
       })
     }, el)
     return () => ctx.revert()
@@ -332,9 +333,9 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
     <div className="min-h-screen">
       <section
         ref={heroRef}
-        className="relative overflow-hidden bg-night px-4 md:px-8 lg:px-10"
+        className="relative overflow-hidden bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] px-4 md:px-8 lg:px-10"
       >
-        <div className="hero-orb hero-orb-green orb-drift-1" style={{ width: '520px', height: '520px', top: '-12%', right: '-8%' }} />
+        <div className="hero-orb hero-orb-red orb-drift-1" style={{ width: '520px', height: '520px', top: '-12%', right: '-8%' }} />
         <div className="hero-orb hero-orb-blue orb-drift-2" style={{ width: '400px', height: '400px', bottom: '-16%', left: '-10%' }} />
         <div
           ref={glowRef}
@@ -369,6 +370,13 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
 
         <div className="relative mx-auto grid min-h-[85vh] max-w-7xl items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="max-w-3xl">
+            <div className="mb-6 inline-flex rounded-[1.4rem] border border-white/12 bg-white/8 p-3 shadow-[0_14px_34px_rgba(11,18,32,0.2)] backdrop-blur-md">
+              <img
+                src={logoMain}
+                alt="CIMIA"
+                className="h-12 w-auto object-contain sm:h-14"
+              />
+            </div>
             <div className="section-kicker border-white/15 bg-white/10 text-emerald-200">
               <span className="pulse-dot" />
               Acceso inteligente a la vivienda
@@ -377,7 +385,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
             <h1 className="hero-title mt-8 text-5xl font-black text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:text-6xl lg:text-7xl" style={{ color: '#ffffff' }}>
               <TypingReveal text="La IA que convierte ingresos en rutas reales de vivienda." />
             </h1>
-            <p className="text-lead mt-7 max-w-2xl text-slate-200 text-lg leading-relaxed">
+            <p className="text-lead mt-7 max-w-2xl text-slate-100 text-lg leading-relaxed">
               SimIA precalifica familias, explica rechazos, recomienda alternativas y entrega una narrativa comercial util para el mercado inmobiliario de Misiones.
             </p>
 
@@ -389,7 +397,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
                 Evaluar mi acceso
                 <ArrowRight className="h-5 w-5" />
               </button>
-              <p className="text-sm font-semibold text-slate-300/90">
+              <p className="text-sm font-semibold text-slate-100/90">
                 Resultado orientativo con rutas habitacionales y propiedades compatibles.
               </p>
             </div>
@@ -530,9 +538,9 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
       </section>
 
       {/* ===== CINEMATIC SCROLL IMAGE ===== */}
-      <section className="cinematic-image-trigger relative -mt-6 overflow-hidden">
-        <div className="relative mx-auto max-w-[100rem]">
-          <div className="cinematic-image-wrapper relative overflow-hidden rounded-b-[2.5rem] sm:rounded-b-[3.5rem]" style={{ height: 'clamp(420px, 55vh, 680px)' }}>
+      <section className="cinematic-image-trigger relative overflow-hidden bg-[#0B162C] pb-4 sm:pb-6">
+        <div className="relative mx-auto w-full max-w-[min(112rem,calc(100%-1.5rem))] sm:max-w-[min(112rem,calc(100%-3rem))]">
+          <div className="cinematic-image-wrapper relative overflow-hidden rounded-[2rem] shadow-[0_40px_90px_rgba(11,18,32,0.34)] sm:rounded-[2.75rem]" style={{ height: 'clamp(420px, 55vh, 680px)' }}>
             <img
               src="/forLanding1.png"
               alt="Acceso familiar a la vivienda - SimIA"
@@ -540,8 +548,8 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
               className="cinematic-hero-img absolute inset-0 h-full w-full object-cover"
               style={{ transform: 'scale(1.15)' }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-night/90 via-night/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-night/50 via-transparent to-night/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-night/92 via-night/38 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-night/72 via-night/12 to-night/58" />
             
             {/* Floating stat badges on the image */}
             <div className="absolute bottom-8 left-0 right-0 px-6 sm:px-10 flex flex-wrap items-end justify-between gap-4">
@@ -553,13 +561,13 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
                 ].map((stat) => (
                   <div key={stat.label} className="text-white">
                     <p className="text-3xl sm:text-4xl font-black tracking-tight drop-shadow-lg">{stat.value}</p>
-                    <p className="text-xs sm:text-sm font-semibold text-white/70 mt-0.5">{stat.label}</p>
+                    <p className="mt-0.5 text-xs font-semibold text-white/85 sm:text-sm">{stat.label}</p>
                   </div>
                 ))}
               </div>
               <div className="hidden sm:flex items-center gap-3">
                 {['Acceso familiar', 'Crecimiento', 'Comunidad', 'Proyectos'].map((tag) => (
-                  <span key={tag} className="inline-block rounded-full bg-white/15 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white border border-white/10 shadow-lg">
+                  <span key={tag} className="inline-block rounded-full border border-white/18 bg-white/18 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-md">
                     {tag}
                   </span>
                 ))}
@@ -622,9 +630,9 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
               Una IA para ordenar{' '}
               <span className="text-gradient-animated">decisiones habitacionales.</span>
             </h2>
-            <p className="text-lead mt-3 text-ink-soft">
-              SimIA convierte datos dispersos en recomendaciones concretas para familias, inmobiliarias, constructoras e inversores.
-            </p>
+              <p className="text-lead mt-3 text-ink-soft">
+                SimIA convierte datos dispersos en recomendaciones concretas para familias, inmobiliarias, constructoras e inversores.
+              </p>
           </div>
           <div className="hidden lg:block rounded-[2rem] border border-border bg-white/80 p-6 shadow-md float-slow">
             <div className="flex items-center gap-2 mb-4">
@@ -676,7 +684,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
                 <div className="relative z-10 flex flex-col h-full justify-between">
                   <div>
                     <div className="flex items-center justify-between gap-4">
-                      <div className="grid h-12 w-12 place-items-center rounded-2xl bg-green-trust/10 text-green-trust">
+                      <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-red/10 text-brand-red">
                         {financingIcons[program.icon] ?? <Landmark className="h-5 w-5" />}
                       </div>
                       <span className="rounded-full bg-blue-tech/10 px-3 py-1 text-xs font-black text-blue-tech">
@@ -705,7 +713,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
             <h2 className="text-xl font-bold text-text-primary">Mapa de Demanda</h2>
             <p className="text-sm text-ink-soft">Gran Posadas - demanda, capacidad de pago y producto recomendado</p>
           </div>
-          <span className="rounded-full bg-green-trust/10 px-3 py-1 text-xs font-semibold text-green-trust border-glow">
+          <span className="rounded-full bg-brand-red/10 px-3 py-1 text-xs font-semibold text-brand-red border-glow">
             Mercado local
           </span>
         </div>
@@ -715,14 +723,14 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="section-divider" /></div>
 
       <section className="gsap-reveal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-14">
-        <div className="rounded-[2rem] bg-night p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.16)] shimmer-overlay relative overflow-hidden">
-          <div className="hero-orb hero-orb-green" style={{ width: '280px', height: '280px', top: '-30%', right: '-10%', opacity: 0.5 }} />
+        <div className="rounded-[2rem] bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.16)] shimmer-overlay relative overflow-hidden">
+          <div className="hero-orb hero-orb-red" style={{ width: '280px', height: '280px', top: '-30%', right: '-10%', opacity: 0.5 }} />
           <div className="relative z-10 grid items-center gap-6 lg:grid-cols-[1fr_auto]">
             <div>
               <p className="text-eyebrow text-emerald-300">SimIA</p>
               {/* Added text-white class directly to prevent global dark styles from overriding visibility */}
               <h2 className="mt-3 text-4xl font-black leading-[1.08] text-white">De la consulta inmobiliaria a una ruta de acceso concreta.</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-200">
                 La plataforma ayuda a explicar capacidad de compra, priorizar opciones y detectar donde existe demanda real para nuevas operaciones.
               </p>
             </div>
@@ -739,16 +747,16 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
 
       <footer className="border-t border-border/70 py-8 text-center text-sm text-ink-soft space-y-3">
         <div>
-          <p className="font-bold text-text-primary/80">SimIA — Sistema Inteligente Misionero de Acceso a la Vivienda</p>
-          <p className="text-xs mt-1">
+          <p className="font-bold text-text-primary">SimIA — Sistema Inteligente Misionero de Acceso a la Vivienda</p>
+          <p className="mt-1 text-xs text-ink-soft">
             Datos de precios actualizados a junio 2026. Fuentes: Zonaprop (relevamiento propio Misiones),
             IPRODHA (programas provinciales activos), BCRA (indices UVA), INDEC Censo 2022.
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-[11px] text-ink-soft/50">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-[11px] text-ink-soft/75">
           <span>Posadas · Garupa · Candelaria · Obera · Eldorado · Santa Catalina</span>
         </div>
-        <p className="text-[10px] text-ink-soft/40">
+        <p className="text-[10px] text-ink-soft/70">
           Herramienta de decision para la Camara Inmobiliaria de Misiones. Datos simulados con fines demostrativos. No constituye asesoramiento financiero.
         </p>
       </footer>

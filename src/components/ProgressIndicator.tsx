@@ -27,9 +27,9 @@ export default function ProgressIndicator({ steps, currentStep }: Props) {
                 <div
                   className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-xs font-black transition-all duration-300 ${
                     isCompleted
-                      ? 'bg-green-trust text-white'
+                      ? 'bg-brand-red text-white'
                       : isCurrent
-                        ? 'bg-green-trust text-white step-active ring-4 ring-green-trust/20'
+                        ? 'bg-brand-red text-white step-active ring-4 ring-brand-red/20'
                         : 'bg-gray-200 text-gray-400'
                   }`}
                   aria-current={isCurrent ? 'step' : undefined}
@@ -38,7 +38,7 @@ export default function ProgressIndicator({ steps, currentStep }: Props) {
                 </div>
                 <span
                   className={`text-xs font-semibold transition-colors hidden sm:inline ${
-                    isCurrent ? 'text-green-trust' : isCompleted ? 'text-text-primary' : 'text-gray-400'
+                    isCurrent ? 'text-brand-red' : isCompleted ? 'text-text-primary' : 'text-gray-400'
                   }`}
                 >
                   {step.label}
@@ -48,7 +48,7 @@ export default function ProgressIndicator({ steps, currentStep }: Props) {
                 <div className="hidden sm:block flex-1 h-px mx-1">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${
-                      i < currentIdx ? 'bg-green-trust w-full' : 'bg-gray-200 w-0'
+                      i < currentIdx ? 'bg-brand-red w-full' : 'bg-gray-200 w-0'
                     }`}
                   />
                 </div>

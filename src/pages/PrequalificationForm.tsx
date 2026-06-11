@@ -120,14 +120,14 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
   const getFieldState = (field: string) => {
     const valid = isValid(field)
     if (valid === null) return ''
-    return valid ? 'ring-2 ring-green-trust/30 border-green-trust' : 'ring-2 ring-red-alert/30 border-red-alert'
+    return valid ? 'ring-2 ring-brand-red/30 border-brand-red' : 'ring-2 ring-red-alert/30 border-red-alert'
   }
 
   const inputClass =
-    'w-full rounded-2xl border border-border/80 bg-white/86 px-4 py-3.5 text-sm font-semibold text-text-primary placeholder-gray-400 shadow-sm focus:outline-none focus:ring-4 focus:ring-green-trust/12 focus:border-green-trust transition-all'
+    'w-full rounded-2xl border border-border/80 bg-white/86 px-4 py-3.5 text-sm font-semibold text-text-primary placeholder-gray-400 shadow-sm focus:outline-none focus:ring-4 focus:ring-brand-red/12 focus:border-brand-red transition-all'
 
   const toggleClass = (active: boolean) =>
-    `relative w-11 h-6 rounded-full transition-colors cursor-pointer ${active ? 'bg-green-trust' : 'bg-gray-300'}`
+    `relative w-11 h-6 rounded-full transition-colors cursor-pointer ${active ? 'bg-brand-red' : 'bg-gray-300'}`
 
   const toggleKnobClass = (active: boolean) =>
     `absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${active ? 'left-5.5' : 'left-0.5'}`
@@ -167,10 +167,10 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
           <div className="ornament-corner ornament-corner-tl" />
           <div className="mb-5 flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.16em] text-green-trust">Perfil economico</p>
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-brand-red">Perfil economico</p>
               <h2 className="mt-1 text-lg sm:text-xl font-black text-text-primary">Datos para simular capacidad real</h2>
             </div>
-            <div className="hidden h-12 w-12 place-items-center rounded-2xl bg-green-trust/10 text-green-trust sm:grid">
+            <div className="hidden h-12 w-12 place-items-center rounded-2xl bg-brand-red/10 text-brand-red sm:grid">
               <BadgeDollarSign className="h-5 w-5" />
             </div>
             <button
@@ -193,7 +193,7 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
                   </label>
                   <div className="relative">
                     {f.field !== 'householdMembers' && f.field !== 'monthlyDebt' && touched[f.field] && (form as Record<string, unknown>)[f.field] as number > 0 && (
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-green-trust bg-green-trust/10 rounded-full px-2 py-0.5">
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-brand-red bg-brand-red/10 rounded-full px-2 py-0.5">
                         ✓
                       </span>
                     )}
@@ -266,9 +266,9 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
             </div>
 
             {totalIncome > 0 && (
-              <div className="form-stagger-item rounded-2xl bg-gradient-to-r from-green-trust/5 to-blue-tech/5 border border-green-trust/10 p-4 text-center animate-[fadeSlideUp_0.4s_ease-out]">
+              <div className="form-stagger-item rounded-2xl bg-gradient-to-r from-brand-red/5 to-blue-tech/5 border border-brand-red/10 p-4 text-center animate-[fadeSlideUp_0.4s_ease-out]">
                 <p className="text-xs font-bold uppercase tracking-[0.1em] text-ink-soft">Ingreso total estimado</p>
-                <p className="text-2xl font-black text-green-trust mt-1">${totalIncome.toLocaleString('es-AR')}</p>
+                <p className="text-2xl font-black text-brand-red mt-1">${totalIncome.toLocaleString('es-AR')}</p>
                 <p className="text-[10px] text-ink-soft mt-0.5">mensual</p>
               </div>
             )}
@@ -303,7 +303,7 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
         <div className="form-stagger-item premium-card h-fit rounded-[1.75rem] p-5 sm:p-6 border-glow shadow-lg">
           <div className="relative z-10 flex flex-col gap-4">
             <h3 className="font-semibold text-text-primary text-lg flex items-center gap-2">
-              <span className="grid h-10 w-10 place-items-center rounded-2xl bg-green-trust/10 text-green-trust">
+              <span className="grid h-10 w-10 place-items-center rounded-2xl bg-brand-red/10 text-brand-red">
                 <Calculator className="w-5 h-5" />
               </span>
               Acciones
@@ -328,15 +328,15 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
               )}
             </button>
 
-            <div className="rounded-2xl border border-green-trust/15 bg-green-trust/5 p-4">
-              <p className="text-xs font-black uppercase tracking-[0.1em] text-green-trust mb-3">Perfiles de ejemplo</p>
+            <div className="rounded-2xl border border-brand-red/15 bg-brand-red/5 p-4">
+              <p className="text-xs font-black uppercase tracking-[0.1em] text-brand-red mb-3">Perfiles de ejemplo</p>
               <button
                 type="button"
                 onClick={() => setShowDemoSelector(!showDemoSelector)}
-                className="flex w-full items-center justify-between rounded-xl bg-white border border-border px-4 py-3 text-sm font-bold text-text-primary hover:border-green-trust/40 hover:shadow-sm transition-all cursor-pointer"
+                className="flex w-full items-center justify-between rounded-xl bg-white border border-border px-4 py-3 text-sm font-bold text-text-primary hover:border-brand-red/40 hover:shadow-sm transition-all cursor-pointer"
               >
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-green-trust" />
+                  <User className="w-4 h-4 text-brand-red" />
                   {currentDemoName}
                 </div>
                 <ChevronDown className={`w-4 h-4 text-ink-soft transition-transform ${showDemoSelector ? 'rotate-180' : ''}`} />
@@ -351,8 +351,8 @@ export default function PrequalificationForm({ onCalculate, calculating }: Prequ
                       onClick={() => fillFromDemo(i)}
                       className={`flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-sm font-semibold transition-all cursor-pointer ${
                         i === demoCaseIndex
-                          ? 'bg-green-trust text-white'
-                          : 'text-text-primary hover:bg-green-trust/5'
+                          ? 'bg-brand-red text-white'
+                          : 'text-text-primary hover:bg-brand-red/5'
                       }`}
                     >
                       <span>{c.name}</span>

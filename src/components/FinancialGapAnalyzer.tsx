@@ -34,7 +34,7 @@ export default memo(function FinancialGapAnalyzer({ gap }: Props) {
         </div>
         <div className="rounded-xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-100 p-3.5 shadow-sm">
           <div className="text-xs text-green-600 mb-0.5">Cuota posible</div>
-          <div className="font-bold text-lg text-green-trust">${gap.possibleMonthly.toLocaleString('es-AR')}</div>
+          <div className="font-bold text-lg text-brand-red">${gap.possibleMonthly.toLocaleString('es-AR')}</div>
         </div>
       </div>
 

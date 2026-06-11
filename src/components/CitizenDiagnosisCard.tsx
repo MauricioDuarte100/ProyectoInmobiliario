@@ -26,7 +26,7 @@ export default memo(function CitizenDiagnosisCard({ diagnosis, city, income, sav
       <div className="relative z-10 space-y-6">
         <div className="flex items-start justify-between flex-wrap gap-4">
           <div>
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-green-trust/20 bg-green-trust/8 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-green-trust shadow-sm">
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/8 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-brand-red shadow-sm">
               <Sparkles className="h-3.5 w-3.5" />
               Diagnostico SimIA
             </div>
@@ -38,8 +38,8 @@ export default memo(function CitizenDiagnosisCard({ diagnosis, city, income, sav
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="rounded-2xl bg-night p-6 text-white relative overflow-hidden shadow-lg shadow-night/10">
-            <div className="hero-orb hero-orb-green" style={{ width: '160px', height: '160px', top: '-25%', right: '-12%', opacity: 0.3 }} />
+          <div className="rounded-2xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-6 text-white relative overflow-hidden shadow-lg shadow-night/10">
+            <div className="hero-orb hero-orb-red" style={{ width: '160px', height: '160px', top: '-25%', right: '-12%', opacity: 0.3 }} />
             <div className="sparkle-container">
               <div className="sparkle" style={{ left: '62%', top: '18%', animationDelay: '0.3s', animationDuration: '2.5s' }} />
               <div className="sparkle" style={{ left: '70%', top: '30%', animationDelay: '1.2s', animationDuration: '2.8s' }} />
@@ -63,8 +63,8 @@ export default memo(function CitizenDiagnosisCard({ diagnosis, city, income, sav
           </div>
 
           <div className="space-y-3">
-            <div className="rounded-xl border border-green-trust/15 bg-gradient-to-br from-green-50/60 to-white p-4 shadow-sm">
-              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-green-trust mb-2">
+            <div className="rounded-xl border border-brand-red/15 bg-gradient-to-br from-green-50/60 to-white p-4 shadow-sm">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-brand-red mb-2">
                 <ShieldCheck className="h-3.5 w-3.5" />
                 Solucion recomendada
               </div>

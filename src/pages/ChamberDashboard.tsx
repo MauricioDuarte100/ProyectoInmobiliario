@@ -85,19 +85,19 @@ export default function ChamberDashboard({ onBack }: Props) {
           </button>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-trust to-blue-tech shadow-lg shadow-green-trust/20">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red to-blue-tech shadow-lg shadow-brand-red/20">
             <Building2 className="h-5 w-5 text-white" />
           </div>
           <h1 className="text-2xl font-black text-text-primary">Panel de la Camara</h1>
-          <span className="rounded-full bg-gradient-to-r from-green-trust/12 to-blue-tech/12 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-green-trust border border-green-trust/20 shadow-sm">
+          <span className="rounded-full bg-gradient-to-r from-brand-red/12 to-blue-tech/12 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-brand-red border border-brand-red/20 shadow-sm">
             Decision
           </span>
         </div>
       </div>
 
       <div className="gsap-reveal">
-        <div className="rounded-[2rem] bg-gradient-to-br from-night to-slate-800 p-6 md:p-8 text-white shadow-2xl shadow-night/30 relative overflow-hidden border border-white/10">
-          <div className="hero-orb hero-orb-green" style={{ width: '220px', height: '220px', top: '-25%', right: '-10%', opacity: 0.4 }} />
+        <div className="rounded-[2rem] bg-gradient-to-br from-night via-blue-900/40 to-blue-950 p-6 md:p-8 text-white shadow-2xl shadow-night/30 relative overflow-hidden border border-white/10">
+          <div className="hero-orb hero-orb-red" style={{ width: '220px', height: '220px', top: '-25%', right: '-10%', opacity: 0.4 }} />
           <div className="hero-orb hero-orb-blue" style={{ width: '180px', height: '180px', bottom: '-20%', left: '-8%', opacity: 0.3 }} />
           <div className="hero-orb" style={{ width: '120px', height: '120px', top: '30%', left: '50%', opacity: 0.15, background: 'radial-gradient(circle, rgba(245,158,11,1) 0%, transparent 70%)' }} />
           <div className="relative z-10 space-y-4">
@@ -121,7 +121,7 @@ export default function ChamberDashboard({ onBack }: Props) {
 
       <div className="flex flex-wrap gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-white/60 backdrop-blur-xl border border-border shadow-md" role="tablist" aria-label="Secciones del panel">
         {[
-          { key: 'demanda', label: 'Mapa de Demanda', icon: MapPin, color: 'text-green-trust' },
+          { key: 'demanda', label: 'Mapa de Demanda', icon: MapPin, color: 'text-brand-red' },
           { key: 'decision', label: 'Panel de Decision', icon: Target, color: 'text-amber-500' },
           { key: 'proyecto', label: 'Recomendar Proyecto', icon: HardHat, color: 'text-violet-500' },
           { key: 'convenio', label: 'Generar Convenio', icon: Handshake, color: 'text-blue-tech' },
@@ -141,7 +141,7 @@ export default function ChamberDashboard({ onBack }: Props) {
               aria-selected={active}
               className={`group relative inline-flex items-center gap-2 rounded-xl px-3.5 py-2.5 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer btn-press ${
                 active
-                  ? 'bg-gradient-to-br from-night to-slate-800 text-white shadow-xl shadow-night/25 scale-[1.02] z-10'
+                  ? 'bg-gradient-to-br from-night via-blue-900/40 to-blue-950 text-white shadow-xl shadow-night/25 scale-[1.02] z-10'
                   : 'text-ink-soft hover:text-text-primary hover:bg-white/80 hover:shadow-sm'
               }`}
             >
@@ -155,8 +155,8 @@ export default function ChamberDashboard({ onBack }: Props) {
       <section className="gsap-reveal">
         {activeTab === 'demanda' && (
           <div className="space-y-8">
-            <div className="rounded-2xl bg-night p-6 text-white space-y-4 relative overflow-hidden shadow-xl shadow-night/10">
-              <div className="hero-orb hero-orb-green" style={{ width: '180px', height: '180px', top: '-25%', right: '-8%', opacity: 0.25 }} />
+            <div className="rounded-2xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-6 text-white space-y-4 relative overflow-hidden shadow-xl shadow-night/10">
+              <div className="hero-orb hero-orb-red" style={{ width: '180px', height: '180px', top: '-25%', right: '-8%', opacity: 0.25 }} />
               <div className="hero-orb hero-orb-blue" style={{ width: '140px', height: '140px', bottom: '-20%', left: '-5%', opacity: 0.15 }} />
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-2">

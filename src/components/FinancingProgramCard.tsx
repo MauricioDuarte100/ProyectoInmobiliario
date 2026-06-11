@@ -34,23 +34,23 @@ export default memo(function FinancingProgramCard({ program, featured }: Financi
   return (
     <article
       className={`premium-card rounded-[1.6rem] p-5 ${
-        featured ? 'ring-2 ring-green-trust/30' : ''
+        featured ? 'ring-2 ring-brand-red/30' : ''
       }`}
     >
       <div className="relative z-10">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-green-trust/10 text-green-trust">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-red/10 text-brand-red">
               <Icon className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-eyebrow text-green-trust">
+              <p className="text-eyebrow text-brand-red">
                 {program.provider}
               </p>
               <h3 className="mt-1 text-base font-bold leading-6 text-text-primary">{program.name}</h3>
             </div>
           </div>
-          <span className="shrink-0 rounded-full bg-green-trust/10 px-3 py-1 text-xs font-black text-green-trust">
+          <span className="shrink-0 rounded-full bg-brand-red/10 px-3 py-1 text-xs font-black text-brand-red">
             {program.compatibility}%
           </span>
         </div>
@@ -79,8 +79,8 @@ export default memo(function FinancingProgramCard({ program, featured }: Financi
           </div>
         </div>
 
-        <div className="mt-4 rounded-2xl border border-green-trust/12 bg-green-trust/5 p-3">
-          <p className="text-xs font-black uppercase tracking-[0.12em] text-green-trust">Mejor encaje</p>
+        <div className="mt-4 rounded-2xl border border-brand-red/12 bg-brand-red/5 p-3">
+          <p className="text-xs font-black uppercase tracking-[0.12em] text-brand-red">Mejor encaje</p>
           <p className="mt-1 text-sm leading-6 text-text-primary">{program.bestFor}</p>
         </div>
 

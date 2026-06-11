@@ -40,8 +40,8 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
         </button>
       </div>
 
-      <div className="gsap-reveal mb-8 rounded-[2rem] bg-night p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.2)] relative overflow-hidden">
-        <div className="hero-orb hero-orb-green" style={{ width: '220px', height: '220px', top: '-20%', right: '-6%', opacity: 0.45 }} />
+      <div className="gsap-reveal mb-8 rounded-[2rem] bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.2)] relative overflow-hidden">
+        <div className="hero-orb hero-orb-red" style={{ width: '220px', height: '220px', top: '-20%', right: '-6%', opacity: 0.45 }} />
         <div className="hero-orb hero-orb-blue" style={{ width: '180px', height: '180px', bottom: '-15%', left: '-4%', opacity: 0.35 }} />
         <div className="relative z-10">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-300">Urban investment radar</p>
@@ -61,7 +61,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
             </h2>
             <p className="text-sm text-ink-soft">Gran Posadas - demanda sintetizada por SimIA</p>
           </div>
-          <span className="px-3 py-1 rounded-full bg-green-trust/10 text-green-trust text-xs font-semibold flex items-center gap-1 breather">
+          <span className="px-3 py-1 rounded-full bg-brand-red/10 text-brand-red text-xs font-semibold flex items-center gap-1 breather">
             <TrendingUp className="w-3.5 h-3.5" />
             Mercado local
           </span>
@@ -73,7 +73,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 gsap-stagger-children">
         <div className="gsap-card premium-card flex items-center gap-4 rounded-2xl p-5">
-          <div className="relative z-10 rounded-2xl bg-green-trust/10 p-3 text-green-trust glow-pulse">
+          <div className="relative z-10 rounded-2xl bg-brand-red/10 p-3 text-brand-red glow-pulse">
             <DollarSign className="w-5 h-5" />
           </div>
           <div className="relative z-10">

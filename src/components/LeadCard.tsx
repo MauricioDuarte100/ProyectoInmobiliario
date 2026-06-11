@@ -48,7 +48,7 @@ export default memo(function LeadCard({ lead }: LeadCardProps) {
           </div>
           <div className="flex items-center justify-between text-sm mt-1">
             <span className="text-gray-500">Cuota est. / Capacidad</span>
-            <span className="text-green-trust font-semibold">
+            <span className="text-brand-red font-semibold">
               {formatCurrency(topProperty.estimatedMonthlyPayment)} / {formatCurrency(score.maxMonthlyPayment)}
             </span>
           </div>
@@ -57,7 +57,7 @@ export default memo(function LeadCard({ lead }: LeadCardProps) {
         <div className="mt-4 grid grid-cols-2 gap-2">
           <div className="rounded-2xl bg-white/80 p-3 text-sm shadow-sm">
             <div className="flex items-center gap-1">
-            <Phone className="w-3.5 h-3.5 text-green-trust" />
+            <Phone className="w-3.5 h-3.5 text-brand-red" />
             <span
                 className="font-black"
                 style={{ color: contactColor }}

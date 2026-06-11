@@ -19,8 +19,8 @@ export default memo(function DemandMapInsight({ cities }: Props) {
   ]
 
   return (
-    <div className="rounded-3xl bg-night p-6 md:p-8 text-white relative overflow-hidden shadow-xl shadow-night/15">
-      <div className="hero-orb hero-orb-green" style={{ width: '260px', height: '260px', top: '-10%', right: '-5%', opacity: 0.35 }} />
+    <div className="rounded-3xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-6 md:p-8 text-white relative overflow-hidden shadow-xl shadow-night/15">
+      <div className="hero-orb hero-orb-red" style={{ width: '260px', height: '260px', top: '-10%', right: '-5%', opacity: 0.35 }} />
       <div className="hero-orb hero-orb-blue" style={{ width: '200px', height: '200px', bottom: '-10%', left: '-5%', opacity: 0.25 }} />
 
       <div className="relative z-10 space-y-8">

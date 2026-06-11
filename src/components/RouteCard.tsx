@@ -28,12 +28,12 @@ export default memo(function RouteCard({ route, isRecommended }: RouteCardProps)
     <div
       ref={cardRef}
       className={`gsap-card premium-card rounded-3xl p-5 ${
-        isRecommended ? 'ring-2 ring-green-trust/35' : ''
+        isRecommended ? 'ring-2 ring-brand-red/35' : ''
       }`}
       style={{ transformStyle: 'preserve-3d' }}
     >
       {isRecommended && (
-        <div className="absolute right-0 top-0 flex items-center gap-1 rounded-bl-2xl bg-green-trust px-3 py-1.5 text-xs font-black text-white">
+        <div className="absolute right-0 top-0 flex items-center gap-1 rounded-bl-2xl bg-brand-red px-3 py-1.5 text-xs font-black text-white">
           <Sparkles className="w-3 h-3" />
           Recomendada
         </div>
@@ -43,7 +43,7 @@ export default memo(function RouteCard({ route, isRecommended }: RouteCardProps)
         <div className="flex items-center gap-3">
           <div
             className={`grid h-12 w-12 place-items-center rounded-2xl ${
-              isRecommended ? 'bg-green-trust/10 text-green-trust' : 'bg-slate-100 text-ink-soft'
+              isRecommended ? 'bg-brand-red/10 text-brand-red' : 'bg-slate-100 text-ink-soft'
             }`}
           >
             <Icon className="w-5 h-5" />

@@ -26,9 +26,9 @@ export default memo(function MetricCard({ icon, value, label, trend }: MetricCar
       }}
     >
       <div className="relative z-10">
-        <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-gradient-to-br from-green-trust/16 to-transparent blur-2xl" />
+        <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-gradient-to-br from-brand-red/16 to-transparent blur-2xl" />
         <motion.div
-          className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-green-trust/10 text-green-trust ring-1 ring-green-trust/15 shadow-sm"
+          className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-brand-red/10 text-brand-red ring-1 ring-brand-red/15 shadow-sm"
           whileHover={{ rotate: [0, -8, 8, 0], scale: 1.15 }}
           transition={{ duration: 0.4 }}
         >

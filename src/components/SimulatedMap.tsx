@@ -89,10 +89,10 @@ export default memo(function SimulatedMap({ zoneDemands }: SimulatedMapProps) {
     <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.12)]">
       <div className="flex items-center justify-between gap-4 border-b border-border/70 bg-white/92 px-5 py-4">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-green-trust">Mapa georreferenciado</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-brand-red">Mapa georreferenciado</p>
           <h3 className="mt-1 text-lg font-black text-text-primary">Demanda habitacional en Gran Posadas</h3>
         </div>
-        <span className="rounded-full bg-green-trust/10 px-3 py-1 text-xs font-black text-green-trust">
+        <span className="rounded-full bg-brand-red/10 px-3 py-1 text-xs font-black text-brand-red">
           OpenStreetMap
         </span>
       </div>

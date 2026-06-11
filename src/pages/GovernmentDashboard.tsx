@@ -23,7 +23,7 @@ const ZONAS_CRITICAS = [
 ]
 
 const PROGRAMAS = [
-  { name: 'IPRODHA', cupo: 340, total: 500, color: 'from-green-trust to-emerald-400', icon: Building2 },
+  { name: 'IPRODHA', cupo: 340, total: 500, color: 'from-brand-red to-rose-400', icon: Building2 },
   { name: 'Cred. Hipot. Nacion', cupo: 210, total: 300, color: 'from-blue-tech to-cyan-400', icon: TrendingUp },
   { name: 'Banco Nacion Convenio', cupo: 130, total: 200, color: 'from-amber-500 to-orange-400', icon: MapPin },
   { name: 'Desarrollo Urbano Municipal', cupo: 180, total: 280, color: 'from-violet-500 to-purple-400', icon: Building2 },
@@ -46,19 +46,19 @@ export default function GovernmentDashboard({ onBack }: Props) {
           </button>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-night to-slate-700 shadow-lg shadow-night/20">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-night via-blue-800/50 to-blue-900 shadow-lg shadow-night/20">
             <Building2 className="h-5 w-5 text-white" />
           </div>
           <h1 className="text-2xl font-display font-black text-text-primary">Panel de Gobierno</h1>
-          <span className="rounded-full bg-gradient-to-r from-night/10 to-night/5 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-night border border-night/15 shadow-sm">
+          <span className="rounded-full bg-gradient-to-r from-blue-900/15 to-brand-red/5 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-night border border-night/15 shadow-sm">
             Gestion
           </span>
         </div>
       </div>
 
       <div className="gsap-reveal">
-        <div className="rounded-[2rem] bg-gradient-to-br from-night to-slate-800 p-6 md:p-8 text-white shadow-2xl shadow-night/30 relative overflow-hidden border border-white/10">
-          <div className="hero-orb hero-orb-green" style={{ width: '220px', height: '220px', top: '-25%', right: '-10%', opacity: 0.4 }} />
+        <div className="rounded-[2rem] bg-gradient-to-br from-night via-blue-900/40 to-blue-950 p-6 md:p-8 text-white shadow-2xl shadow-night/30 relative overflow-hidden border border-white/10">
+          <div className="hero-orb hero-orb-red" style={{ width: '220px', height: '220px', top: '-25%', right: '-10%', opacity: 0.4 }} />
           <div className="hero-orb hero-orb-blue" style={{ width: '180px', height: '180px', bottom: '-20%', left: '-8%', opacity: 0.3 }} />
           <div className="hero-orb" style={{ width: '120px', height: '120px', top: '30%', left: '50%', opacity: 0.15, background: 'radial-gradient(circle, rgba(245,158,11,1) 0%, transparent 70%)' }} />
           <div className="relative z-10 space-y-4">
@@ -78,14 +78,14 @@ export default function GovernmentDashboard({ onBack }: Props) {
 
       <section className="gsap-reveal grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {[
-          { label: 'Presupuesto asignado', value: '$3.500M', icon: Building2, color: 'text-green-trust', sub: '2026' },
+          { label: 'Presupuesto asignado', value: '$3.500M', icon: Building2, color: 'text-brand-red', sub: '2026' },
           { label: 'Ejecutado', value: '$1.482M', icon: TrendingUp, color: 'text-blue-tech', sub: '42,3% del total' },
           { label: 'Casos activos', value: '1.248', icon: HelpCircle, color: 'text-amber-600', sub: '382 en tramite' },
           { label: 'Tiempo promedio', value: '47 dias', icon: Clock, color: 'text-violet-600', sub: 'resolucion' },
         ].map((kpi, i) => {
           const Icon = kpi.icon
           return (
-            <div key={i} className="premium-card rounded-2xl p-5 shadow-lg border-glow group hover:border-green-trust/30 transition-all duration-300">
+            <div key={i} className="premium-card rounded-2xl p-5 shadow-lg border-glow group hover:border-brand-red/30 transition-all duration-300">
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 shadow-sm ring-1 ring-black/5 group-hover:scale-110 transition-transform duration-300">
@@ -115,10 +115,10 @@ export default function GovernmentDashboard({ onBack }: Props) {
               <h2 className="text-lg font-bold text-text-primary">Casos por urgencia</h2>
             </div>
             <div className="grid grid-cols-3 gap-4">
-              <div className="rounded-2xl bg-green-50 p-4 text-center border border-green-200 shadow-sm hover:scale-[1.02] transition-transform">
-                <CheckCircle2 className="mx-auto h-7 w-7 text-green-600 mb-2" />
+              <div className="rounded-2xl bg-blue-50 p-4 text-center border border-blue-200 shadow-sm hover:scale-[1.02] transition-transform">
+                <CheckCircle2 className="mx-auto h-7 w-7 text-blue-600 mb-2" />
                 <div className="text-3xl font-black text-text-primary">520</div>
-                <p className="mt-1 text-xs font-extrabold text-green-700 uppercase tracking-widest">Verde</p>
+                <p className="mt-1 text-xs font-extrabold text-blue-700 uppercase tracking-widest">Azul</p>
                 <p className="mt-1 text-[10px] font-semibold text-ink-soft uppercase">Acceso autonomo</p>
               </div>
               <div className="rounded-2xl bg-amber-50 p-4 text-center border border-amber-200 shadow-sm hover:scale-[1.02] transition-transform">
@@ -176,8 +176,8 @@ export default function GovernmentDashboard({ onBack }: Props) {
           <div className="ornament-corner ornament-corner-br" />
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-trust/10 to-green-trust/5">
-                <Building2 className="w-5 h-5 text-green-trust" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red/10 to-brand-red/5">
+                <Building2 className="w-5 h-5 text-brand-red" />
               </div>
               <h2 className="text-lg font-bold text-text-primary">Programas activos</h2>
             </div>
@@ -227,11 +227,11 @@ export default function GovernmentDashboard({ onBack }: Props) {
                   <div className="flex items-center gap-4">
                     <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-sm ${
                       zona.nivel === 'alto' ? 'bg-red-100 ring-1 ring-red-200' :
-                      zona.nivel === 'medio' ? 'bg-amber-100 ring-1 ring-amber-200' : 'bg-green-100 ring-1 ring-green-200'
+                      zona.nivel === 'medio' ? 'bg-amber-100 ring-1 ring-amber-200' : 'bg-blue-100 ring-1 ring-blue-200'
                     }`}>
                       <MapPin className={`h-5 w-5 ${
                         zona.nivel === 'alto' ? 'text-red-600' :
-                        zona.nivel === 'medio' ? 'text-amber-600' : 'text-green-600'
+                        zona.nivel === 'medio' ? 'text-amber-600' : 'text-blue-600'
                       }`} />
                     </div>
                     <div>
@@ -241,7 +241,7 @@ export default function GovernmentDashboard({ onBack }: Props) {
                   </div>
                   <span className={`rounded-full px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] shadow-sm ${
                     zona.nivel === 'alto' ? 'bg-red-100 text-red-700 ring-1 ring-red-200' :
-                    zona.nivel === 'medio' ? 'bg-amber-100 text-amber-700 ring-1 ring-amber-200' : 'bg-green-100 text-green-700 ring-1 ring-green-200'
+                    zona.nivel === 'medio' ? 'bg-amber-100 text-amber-700 ring-1 ring-amber-200' : 'bg-blue-100 text-blue-700 ring-1 ring-blue-200'
                   }`}>
                     {zona.nivel}
                   </span>

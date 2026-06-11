@@ -129,14 +129,14 @@ export default function CitizenDashboard({ profile, scoreResult, onBack }: Props
             <div className="ornament-corner ornament-corner-br" />
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-trust/10 to-green-trust/5">
-                  <FileText className="w-5 h-5 text-green-trust" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red/10 to-brand-red/5">
+                  <FileText className="w-5 h-5 text-brand-red" />
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-text-primary">Mi Expediente</h2>
                   <p className="text-xs text-ink-soft">Expediente Nro 2025-0421</p>
                 </div>
-                <div className="ml-auto flex items-center gap-1.5 rounded-full bg-green-trust/10 px-3 py-1 text-xs font-bold text-green-trust">
+                <div className="ml-auto flex items-center gap-1.5 rounded-full bg-brand-red/10 px-3 py-1 text-xs font-bold text-brand-red">
                   <Clock className="h-3 w-3" />
                   En tramite
                 </div>
@@ -166,7 +166,7 @@ export default function CitizenDashboard({ profile, scoreResult, onBack }: Props
                   </div>
                   <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-blue-tech to-green-trust transition-all duration-700"
+                      className="h-full rounded-full bg-gradient-to-r from-blue-tech to-brand-red transition-all duration-700"
                       style={{ width: `${Math.min(100, savingsProgress)}%` }}
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function CitizenDashboard({ profile, scoreResult, onBack }: Props
                 <div className="rounded-xl bg-background p-4 space-y-2">
                   <div className="flex items-center justify-between text-sm">
                     <span className="font-semibold text-text-primary">Puntaje</span>
-                    <span className={`text-lg font-black ${scoreResult.score >= 70 ? 'text-green-trust' : scoreResult.score >= 40 ? 'text-amber-500' : 'text-orange-opp'}`}>
+                    <span className={`text-lg font-black ${scoreResult.score >= 70 ? 'text-brand-red' : scoreResult.score >= 40 ? 'text-amber-500' : 'text-orange-opp'}`}>
                       {scoreResult.score}/100
                     </span>
                   </div>
@@ -201,8 +201,8 @@ export default function CitizenDashboard({ profile, scoreResult, onBack }: Props
             <div className="ornament-corner ornament-corner-br" />
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-trust/10 to-green-trust/5">
-                  <CheckCircle2 className="w-5 h-5 text-green-trust" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red/10 to-brand-red/5">
+                  <CheckCircle2 className="w-5 h-5 text-brand-red" />
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-text-primary">Proximas acciones</h2>
@@ -221,8 +221,8 @@ export default function CitizenDashboard({ profile, scoreResult, onBack }: Props
                       />
                       <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-all ${
                         accion.done
-                          ? 'border-green-trust bg-green-trust text-white'
-                          : 'border-border bg-white group-hover:border-green-trust/50'
+                          ? 'border-brand-red bg-brand-red text-white'
+                          : 'border-border bg-white group-hover:border-brand-red/50'
                       }`}>
                         {accion.done && <CheckCircle2 className="h-3.5 w-3.5" />}
                       </span>

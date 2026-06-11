@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { AppPage } from '../types/simia'
 import { Building2, Home, Landmark, Menu, X, ChevronRight, ArrowRight } from 'lucide-react'
-import { SimiaBrandMark } from './brand'
+import logoMain from '../../assets/logoMain.png'
 
 type HeaderProps = {
   currentPage: AppPage
@@ -72,18 +72,18 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
     if (!btn) return
     const ctx = gsap.context(() => {
       btn.addEventListener('mouseenter', () => {
-        gsap.to(btn.querySelector('.logo-icon'), {
-          rotation: -8,
-          scale: 1.12,
-          duration: 0.35,
-          ease: 'back.out(2)',
+        gsap.to(btn.querySelector('.logo-shell'), {
+          y: -1,
+          scale: 1.03,
+          duration: 0.28,
+          ease: 'power2.out',
         })
       })
       btn.addEventListener('mouseleave', () => {
-        gsap.to(btn.querySelector('.logo-icon'), {
-          rotation: 0,
+        gsap.to(btn.querySelector('.logo-shell'), {
+          y: 0,
           scale: 1,
-          duration: 0.45,
+          duration: 0.32,
           ease: 'power3.out',
         })
       })
@@ -101,7 +101,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
         ref={headerRef}
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isHomeTop
-            ? 'border-b border-white/8 bg-night/40 backdrop-blur-xl shadow-none'
+            ? 'border-b border-white/8 bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120]/40 backdrop-blur-xl shadow-none'
             : 'border-b border-slate-200/40 bg-white/82 backdrop-blur-2xl shadow-[0_1px_3px_rgba(15,23,42,0.04)]'
         }`}
         style={{ willChange: 'box-shadow' }}
@@ -111,20 +111,27 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           <button
             ref={logoRef}
             onClick={() => onNavigate('home')}
-            className="group flex cursor-pointer items-center gap-2.5 shrink-0"
+            className="group flex cursor-pointer items-center gap-3 shrink-0"
             aria-label="SimIA - Ir al inicio"
           >
-            <span className={`logo-icon grid h-9 w-9 place-items-center rounded-xl transition-all duration-300 ${
+            <span className={`logo-shell flex items-center rounded-2xl px-3 py-2 transition-all duration-300 ${
               isHomeTop
-                ? 'bg-white/12 text-white ring-1 ring-white/15'
-                : 'bg-night text-white shadow-sm'
+                ? 'bg-white/10 ring-1 ring-white/12 shadow-[0_10px_30px_rgba(11,18,32,0.18)]'
+                : 'bg-white/88 ring-1 ring-slate-200/80 shadow-[0_10px_26px_rgba(15,23,42,0.08)]'
             }`}>
-              <SimiaBrandMark size={18} />
+              <img
+                src={logoMain}
+                alt="CIMIA"
+                className="h-9 w-auto object-contain sm:h-10"
+              />
             </span>
-            <span className="leading-none text-left">
-              <span className={`block text-base font-display font-black tracking-tight ${
+            <span className="hidden leading-none text-left lg:block">
+              <span className={`block text-[0.7rem] font-black uppercase tracking-[0.22em] ${
+                isHomeTop ? 'text-slate-300' : 'text-ink-soft/70'
+              }`}>Sistema Habitacional</span>
+              <span className={`block text-sm font-bold tracking-tight ${
                 isHomeTop ? 'text-white' : 'text-text-primary'
-              }`}>SimIA</span>
+              }`}>Motor de acceso inteligente</span>
             </span>
           </button>
 
@@ -134,7 +141,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               <button
                 onClick={() => onNavigate('home')}
                 className={`font-medium transition-colors cursor-pointer ${
-                  isHomeTop ? 'text-slate-400 hover:text-white' : 'text-ink-soft/60 hover:text-green-trust'
+                  isHomeTop ? 'text-slate-400 hover:text-white' : 'text-ink-soft/60 hover:text-brand-red'
                 }`}
               >
                 Inicio
@@ -160,7 +167,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
                       isActive
                         ? isHomeTop
                           ? 'text-white bg-white/10'
-                          : 'text-green-trust bg-green-trust/6'
+                          : 'text-brand-red bg-brand-red/6'
                         : isHomeTop
                           ? 'text-slate-300 hover:text-white hover:bg-white/6'
                           : 'text-ink-soft hover:text-text-primary hover:bg-slate-50'
@@ -171,7 +178,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
                     {link.label}
                     {isActive && (
                       <span className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] w-5 rounded-full ${
-                        isHomeTop ? 'bg-white/60' : 'bg-green-trust'
+                        isHomeTop ? 'bg-white/60' : 'bg-brand-red'
                       }`} />
                     )}
                   </button>
@@ -186,7 +193,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             className={`hidden sm:inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-bold transition-all duration-200 cursor-pointer ${
               isHomeTop
                 ? 'bg-white text-night hover:bg-white/90 shadow-sm'
-                : 'bg-night text-white hover:bg-night/90 shadow-sm shadow-night/10'
+                : 'bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] text-white hover:bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120]/90 shadow-sm shadow-night/10'
             }`}
           >
             Evaluar acceso
@@ -219,11 +226,14 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           >
             {/* Mobile Header */}
             <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2.5">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-night text-white">
-                  <SimiaBrandMark size={16} />
+              <div className="flex items-center gap-3">
+                <span className="flex items-center rounded-xl bg-white px-2.5 py-2 shadow-sm ring-1 ring-slate-200/80">
+                  <img src={logoMain} alt="CIMIA" className="h-8 w-auto object-contain" />
                 </span>
-                <span className="text-base font-display font-black text-text-primary">SimIA</span>
+                <span>
+                  <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-ink-soft/60">Sistema Habitacional</span>
+                  <span className="block text-sm font-bold text-text-primary">Motor de acceso inteligente</span>
+                </span>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -237,7 +247,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             {/* Mobile CTA */}
             <button
               onClick={() => onNavigate('form')}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-night text-white px-5 py-3.5 text-sm font-bold cursor-pointer hover:bg-night/90 transition-colors"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] text-white px-5 py-3.5 text-sm font-bold cursor-pointer hover:bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120]/90 transition-colors"
             >
               Evaluar acceso
               <ArrowRight className="h-4 w-4" />
@@ -257,18 +267,18 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
                     onClick={() => onNavigate(link.page)}
                     className={`flex w-full items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold transition-all cursor-pointer ${
                       active
-                        ? 'bg-green-trust/8 text-green-trust'
+                        ? 'bg-brand-red/8 text-brand-red'
                         : 'text-text-primary hover:bg-slate-50'
                     }`}
                   >
                     <span className={`grid h-8 w-8 place-items-center rounded-lg ${
-                      active ? 'bg-green-trust/12 text-green-trust' : 'bg-slate-100 text-ink-soft'
+                      active ? 'bg-brand-red/12 text-brand-red' : 'bg-slate-100 text-ink-soft'
                     }`}>
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     {link.label}
                     {active && (
-                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-green-trust" />
+                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-brand-red" />
                     )}
                   </button>
                 )
@@ -279,18 +289,18 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
                 onClick={() => onNavigate('form')}
                 className={`flex w-full items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold transition-all cursor-pointer ${
                   currentPage === 'form'
-                    ? 'bg-green-trust/8 text-green-trust'
+                    ? 'bg-brand-red/8 text-brand-red'
                     : 'text-text-primary hover:bg-slate-50'
                 }`}
               >
                 <span className={`grid h-8 w-8 place-items-center rounded-lg ${
-                  currentPage === 'form' ? 'bg-green-trust/12 text-green-trust' : 'bg-slate-100 text-ink-soft'
+                  currentPage === 'form' ? 'bg-brand-red/12 text-brand-red' : 'bg-slate-100 text-ink-soft'
                 }`}>
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
                 Precalificacion
                 {currentPage === 'form' && (
-                  <span className="ml-auto h-1.5 w-1.5 rounded-full bg-green-trust" />
+                  <span className="ml-auto h-1.5 w-1.5 rounded-full bg-brand-red" />
                 )}
               </button>
             </div>

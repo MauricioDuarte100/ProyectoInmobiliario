@@ -36,11 +36,11 @@ export const KPIStrip = memo(function KPIStrip({ items }: { items: KPI[] }) {
         const trendUp = item.trend && !item.trend.startsWith('-')
         const trendDown = item.trend && item.trend.startsWith('-')
         return (
-          <div key={item.label} className="group rounded-xl border border-border bg-white/70 backdrop-blur p-4 text-center space-y-1.5 shadow-sm hover:shadow-lg hover:scale-[1.03] hover:bg-white/90 hover:border-green-trust/30 transition-all duration-200 cursor-default">
-            <div className="text-2xl font-black text-text-primary group-hover:text-green-trust transition-colors duration-200">{item.value}</div>
+          <div key={item.label} className="group rounded-xl border border-border bg-white/70 backdrop-blur p-4 text-center space-y-1.5 shadow-sm hover:shadow-lg hover:scale-[1.03] hover:bg-white/90 hover:border-brand-red/30 transition-all duration-200 cursor-default">
+            <div className="text-2xl font-black text-text-primary group-hover:text-brand-red transition-colors duration-200">{item.value}</div>
             <div className="text-xs leading-tight font-semibold text-ink-soft">{item.label}</div>
             {item.trend && (
-              <div className={`inline-flex items-center gap-0.5 text-xs font-bold ${trendUp ? 'text-green-trust' : trendDown ? 'text-red-500' : 'text-ink-soft'}`}>
+              <div className={`inline-flex items-center gap-0.5 text-xs font-bold ${trendUp ? 'text-brand-red' : trendDown ? 'text-red-500' : 'text-ink-soft'}`}>
                 {trendUp && <svg className="w-3.5 h-3.5" viewBox="0 0 12 12" fill="currentColor"><path d="M6 2l4 5H2z"/></svg>}
                 {trendDown && <svg className="w-3.5 h-3.5" viewBox="0 0 12 12" fill="currentColor"><path d="M6 10l4-5H2z"/></svg>}
                 {item.trend}
@@ -67,7 +67,7 @@ export const ConversionFunnel = memo(function ConversionFunnel({ data }: { data:
         {data.map((step, i) => {
           const pct = max > 0 ? (step.value / max) * 100 : 0
           const colors = [
-            'from-green-trust via-emerald-500 to-emerald-400',
+            'from-brand-red via-emerald-500 to-emerald-400',
             'from-blue-tech via-blue-600 to-cyan-400',
             'from-amber-500 via-amber-400 to-yellow-400',
             'from-violet-500 via-violet-400 to-purple-400',
@@ -138,7 +138,7 @@ export const DemandTimeline = memo(function DemandTimeline({ data }: { data: Tim
   return (
     <div className="space-y-2">
       <h3 className="text-sm font-bold text-text-primary flex items-center gap-2">
-        <span className="inline-block w-2 h-2 rounded-full bg-green-trust animate-pulse" />
+        <span className="inline-block w-2 h-2 rounded-full bg-brand-red animate-pulse" />
         Evolucion de Demanda
       </h3>
       <ResponsiveContainer width="100%" height={300}>
@@ -299,7 +299,7 @@ export const ZoneComparisonTable = memo(function ZoneComparisonTable({ data }: {
                   <td className="py-3 px-3 text-right">
                     <div className="flex items-center justify-end gap-2.5">
                       <div className="h-2 w-20 rounded-full bg-slate-100 overflow-hidden">
-                        <div className="h-full rounded-full bg-gradient-to-r from-green-trust to-emerald-400 transition-all duration-700 ease-out" style={{ width: `${ahorroPct}%` }} />
+                        <div className="h-full rounded-full bg-gradient-to-r from-brand-red to-emerald-400 transition-all duration-700 ease-out" style={{ width: `${ahorroPct}%` }} />
                       </div>
                       <span className="font-semibold text-text-primary w-16 text-right tabular-nums">{formatCurrency(zone.ahorro)}</span>
                     </div>
@@ -314,11 +314,11 @@ export const ZoneComparisonTable = memo(function ZoneComparisonTable({ data }: {
                   </td>
                   <td className="py-3 px-3 text-center">
                     <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold ${
-                      potencialPct >= 70 ? 'bg-green-trust/12 text-green-trust ring-1 ring-green-trust/30' :
+                      potencialPct >= 70 ? 'bg-brand-red/12 text-brand-red ring-1 ring-brand-red/30' :
                       potencialPct >= 40 ? 'bg-amber-500/12 text-amber-600 ring-1 ring-amber-500/30' :
                       'bg-slate-100 text-slate-500 ring-1 ring-slate-200'
                     }`}>
-                      <span className={`h-1.5 w-1.5 rounded-full ${potencialPct >= 70 ? 'bg-green-trust animate-pulse' : potencialPct >= 40 ? 'bg-amber-500' : 'bg-slate-400'}`} />
+                      <span className={`h-1.5 w-1.5 rounded-full ${potencialPct >= 70 ? 'bg-brand-red animate-pulse' : potencialPct >= 40 ? 'bg-amber-500' : 'bg-slate-400'}`} />
                       {potencialPct >= 70 ? 'Alto' : potencialPct >= 40 ? 'Medio' : 'Desarrollo'}
                     </span>
                   </td>
@@ -348,7 +348,7 @@ export const SparklineCard = memo(function SparklineCard({ label, value, data: r
       <div className="flex items-start justify-between gap-2">
         <span className="text-xs font-semibold text-ink-soft leading-tight">{label}</span>
         {trend !== 0 && (
-          <span className={`inline-flex items-center gap-0.5 text-[11px] font-bold shrink-0 ${trend > 0 ? 'text-green-trust' : 'text-red-500'}`}>
+          <span className={`inline-flex items-center gap-0.5 text-[11px] font-bold shrink-0 ${trend > 0 ? 'text-brand-red' : 'text-red-500'}`}>
             {trend > 0 ? (
               <svg className="w-3 h-3" viewBox="0 0 12 12" fill="currentColor"><path d="M6 2l4 5H2z"/></svg>
             ) : (

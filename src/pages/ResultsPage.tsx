@@ -71,8 +71,8 @@ export default function ResultsPage({
       <div className="results-stagger-item max-w-lg mx-auto lg:max-w-none">
         <ProgressIndicator steps={PROGRESS_STEPS} currentStep="resultado" />
       </div>
-      <section className="results-stagger-item rounded-[2rem] bg-night p-5 sm:p-6 md:p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.22)] relative overflow-hidden">
-        <div className="hero-orb hero-orb-green" style={{ width: '260px', height: '260px', top: '-15%', right: '-5%', opacity: 0.5 }} />
+      <section className="results-stagger-item rounded-[2rem] bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-5 sm:p-6 md:p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.22)] relative overflow-hidden">
+        <div className="hero-orb hero-orb-red" style={{ width: '260px', height: '260px', top: '-15%', right: '-5%', opacity: 0.5 }} />
         <div className="hero-orb hero-orb-blue" style={{ width: '200px', height: '200px', bottom: '-10%', left: '-5%', opacity: 0.4 }} />
         <div className="sparkle-container">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -129,7 +129,7 @@ export default function ResultsPage({
 
       <section className="results-stagger-item">
         <div className="rounded-[2rem] bg-gradient-to-br from-violet-600 to-violet-800 p-6 md:p-8 text-white shadow-2xl shadow-violet-600/30 relative overflow-hidden border border-violet-400/20">
-          <div className="hero-orb hero-orb-green" style={{ width: '200px', height: '200px', top: '-20%', right: '-10%', opacity: 0.3 }} />
+          <div className="hero-orb hero-orb-red" style={{ width: '200px', height: '200px', top: '-20%', right: '-10%', opacity: 0.3 }} />
           <div className="hero-orb hero-orb-blue" style={{ width: '160px', height: '160px', bottom: '-15%', left: '-8%', opacity: 0.25 }} />
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between">
             <div className="space-y-2 max-w-xl">
@@ -191,8 +191,8 @@ export default function ResultsPage({
           <div className="ornament-corner ornament-corner-br" />
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-trust/10 to-green-trust/5">
-                <CircleCheck className="w-5 h-5 text-green-trust" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red/10 to-brand-red/5">
+                <CircleCheck className="w-5 h-5 text-brand-red" />
               </div>
               <h2 className="text-lg font-bold text-text-primary">
                 Motivos de tu resultado
@@ -209,8 +209,8 @@ export default function ResultsPage({
                 return (
                   <li key={i} className="flex items-start gap-3 stagger-item" style={{ animationDelay: `${i * 0.1}s` }}>
                     {isPositive ? (
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-green-trust/10 mt-0.5">
-                        <CircleCheck className="w-4 h-4 text-green-trust" />
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 mt-0.5">
+                        <CircleCheck className="w-4 h-4 text-brand-red" />
                       </div>
                     ) : (
                       <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-orange-opp/10 mt-0.5">
@@ -341,7 +341,7 @@ export default function ResultsPage({
         <button
           type="button"
           onClick={onViewChamber}
-          className="flex items-center justify-center gap-2 rounded-full bg-night px-6 py-3 text-sm font-black text-white shadow-lg shadow-night/20 cursor-pointer transition-transform hover:scale-105 active:scale-95 btn-press"
+          className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] px-6 py-3 text-sm font-black text-white shadow-lg shadow-night/20 cursor-pointer transition-transform hover:scale-105 active:scale-95 btn-press"
           aria-label="Panel de la Camara"
         >
           <Building2 className="w-4 h-4" />

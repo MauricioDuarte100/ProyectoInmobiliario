@@ -12,6 +12,14 @@ import {
 } from "lucide-react";
 import { mockAgents, mockIntent, mockTranscript } from "../data/agenticDemoData";
 
+const RECORDING_TO_PROCESSING_MS = 3300;
+const PROCESSING_TO_TRANSCRIPT_MS = 5500;
+const INTENT_TO_AGENTS_MS = 2100;
+const AGENT_STEP_DELAY_MS = 1200;
+const AGENT_COMPLETION_OFFSET_MS = 1700;
+const RESULTS_OFFSET_MS = 2900;
+const REPORT_OFFSET_MS = 4900;
+
 type DemoStep =
   | "idle"
   | "recording"
@@ -37,15 +45,23 @@ export default function AgenticHousingDemo() {
 
   const startAudioDemo = () => {
     setDemoStep("recording");
+    setTranscript("");
+    setAgents(
+      mockAgents.map((agent) => ({
+        ...agent,
+        status: "pending" as AgentStatus,
+        progress: 0,
+      }))
+    );
 
     setTimeout(() => {
       setDemoStep("processing");
-    }, 3000);
+    }, RECORDING_TO_PROCESSING_MS);
 
     setTimeout(() => {
       setTranscript(mockTranscript);
       setDemoStep("transcribed");
-    }, 5200);
+    }, PROCESSING_TO_TRANSCRIPT_MS);
   };
 
   const activateAgents = () => {
@@ -54,7 +70,7 @@ export default function AgenticHousingDemo() {
     setTimeout(() => {
       setDemoStep("agents-running");
       runAgentsSequence();
-    }, 1800);
+    }, INTENT_TO_AGENTS_MS);
   };
 
   const runAgentsSequence = () => {
@@ -67,7 +83,7 @@ export default function AgenticHousingDemo() {
               : item
           )
         );
-      }, index * 900);
+      }, index * AGENT_STEP_DELAY_MS);
 
       setTimeout(() => {
         setAgents((prev) =>
@@ -77,28 +93,28 @@ export default function AgenticHousingDemo() {
               : item
           )
         );
-      }, index * 900 + 1400);
+      }, index * AGENT_STEP_DELAY_MS + AGENT_COMPLETION_OFFSET_MS);
     });
 
     setTimeout(() => {
       setDemoStep("results");
-    }, mockAgents.length * 900 + 2200);
+    }, mockAgents.length * AGENT_STEP_DELAY_MS + RESULTS_OFFSET_MS);
 
     setTimeout(() => {
       setDemoStep("final-report");
-    }, mockAgents.length * 900 + 4200);
+    }, mockAgents.length * AGENT_STEP_DELAY_MS + REPORT_OFFSET_MS);
   };
 
   return (
-    <section className="w-full rounded-3xl border bg-white p-8 shadow-xl">
+    <section className="w-full rounded-3xl border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/60">
       <div className="mb-8">
-        <p className="text-sm font-medium text-blue-600 flex items-center gap-2">
+        <p className="flex items-center gap-2 text-sm font-semibold text-blue-700">
           <Brain className="w-4 h-4" /> Motor Agentico Habitacional
         </p>
-        <h2 className="mt-2 text-3xl font-bold text-slate-900">
+        <h2 className="mt-2 text-3xl font-bold text-slate-950">
           SimIA interpreta una necesidad y coordina agentes especializados
         </h2>
-        <p className="mt-3 max-w-3xl text-slate-600">
+        <p className="mt-3 max-w-3xl text-slate-700">
           El ciudadano expresa su necesidad por audio. SimIA transcribe,
           detecta intención y activa agentes para encontrar oportunidades,
           financiación, lotes, inmobiliarias y convenios.
@@ -107,7 +123,7 @@ export default function AgenticHousingDemo() {
 
       {demoStep === "idle" && (
         <div className="rounded-2xl bg-slate-50 p-6 flex flex-col items-center py-10">
-          <p className="mb-6 text-slate-500">Demo MVP: audio y procesamiento simulados para presentación.</p>
+          <p className="mb-6 text-slate-700">Demo MVP: audio y procesamiento simulados para presentación.</p>
           <button
             onClick={startAudioDemo}
             className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-4 font-semibold text-white shadow-md transition hover:bg-blue-700"
@@ -155,7 +171,7 @@ export default function AgenticHousingDemo() {
           <p className="font-semibold text-slate-900 flex items-center gap-2">
             <Brain className="w-5 h-5 animate-pulse text-blue-600" /> Procesando audio...
           </p>
-          <div className="mt-4 space-y-3 text-slate-600">
+          <div className="mt-4 space-y-3 text-slate-700">
             <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
               ✓ Audio recibido correctamente
             </motion.p>
@@ -176,7 +192,7 @@ export default function AgenticHousingDemo() {
           className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm relative overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
-          <p className="text-sm font-semibold text-slate-500">
+          <p className="text-sm font-semibold text-slate-600">
             Transcripción detectada
           </p>
           <p className="mt-3 text-lg text-slate-800 italic">“{transcript}”</p>
@@ -236,7 +252,7 @@ export default function AgenticHousingDemo() {
 function IntentDetectionPanel({ intent }: { intent: typeof mockIntent }) {
   return (
     <div className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/50 p-6 relative">
-      <p className="text-sm font-semibold text-indigo-800 flex items-center gap-2">
+      <p className="flex items-center gap-2 text-sm font-semibold text-indigo-900">
         <Brain className="w-4 h-4" /> Intención detectada
       </p>
 
@@ -254,8 +270,8 @@ function IntentDetectionPanel({ intent }: { intent: typeof mockIntent }) {
 function InfoItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl bg-white p-4 shadow-sm border border-slate-100">
-      <p className="text-xs font-bold uppercase tracking-wider text-slate-400">{label}</p>
-      <p className="mt-2 font-semibold text-slate-800">{value}</p>
+      <p className="text-xs font-bold uppercase tracking-wider text-slate-500">{label}</p>
+      <p className="mt-2 font-semibold text-slate-900">{value}</p>
     </div>
   );
 }
@@ -310,7 +326,7 @@ function AgentCard({ agent }: { agent: any }) {
         </div>
       </div>
       
-      <p className="mt-4 text-sm text-slate-600 line-clamp-2">{agent.description}</p>
+      <p className="mt-4 text-sm text-slate-700 line-clamp-2">{agent.description}</p>
 
       <div className="mt-5 h-2 overflow-hidden rounded-full bg-slate-200">
         <div
@@ -321,7 +337,7 @@ function AgentCard({ agent }: { agent: any }) {
         />
       </div>
 
-      <p className="mt-4 text-sm font-medium text-slate-700 h-5">
+      <p className="mt-4 h-5 text-sm font-medium text-slate-800">
         {isPending && "Pendiente de activación"}
         {isRunning && "Analizando información disponible..."}
         {isCompleted && <span className="text-green-700">{agent.result}</span>}
@@ -333,7 +349,7 @@ function AgentCard({ agent }: { agent: any }) {
 function OpportunityResultsPanel() {
   return (
     <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+      <p className="text-sm font-semibold uppercase tracking-wider text-slate-600">
         Resultados consolidados
       </p>
 
@@ -351,7 +367,7 @@ function ResultMetric({ value, label }: { value: string; label: string }) {
   return (
     <div className="rounded-xl bg-slate-50 p-5 text-center border border-slate-100 transition hover:border-blue-200 hover:bg-blue-50/50">
       <p className="text-3xl font-black text-slate-900">{value}</p>
-      <p className="mt-2 text-sm font-medium text-slate-600">{label}</p>
+      <p className="mt-2 text-sm font-medium text-slate-700">{label}</p>
     </div>
   );
 }

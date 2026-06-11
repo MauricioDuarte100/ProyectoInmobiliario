@@ -56,8 +56,8 @@ export default function RealEstatePanel({ onBack }: RealEstatePanelProps) {
         </button>
       </div>
 
-      <div className="gsap-reveal mb-8 rounded-[2rem] bg-night p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.2)] relative overflow-hidden">
-        <div className="hero-orb hero-orb-green" style={{ width: '220px', height: '220px', top: '-20%', right: '-6%', opacity: 0.45 }} />
+      <div className="gsap-reveal mb-8 rounded-[2rem] bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.2)] relative overflow-hidden">
+        <div className="hero-orb hero-orb-red" style={{ width: '220px', height: '220px', top: '-20%', right: '-6%', opacity: 0.45 }} />
         <div className="hero-orb hero-orb-blue" style={{ width: '180px', height: '180px', bottom: '-15%', left: '-4%', opacity: 0.35 }} />
         <div className="relative z-10">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-300">Broker command center</p>
@@ -70,7 +70,7 @@ export default function RealEstatePanel({ onBack }: RealEstatePanelProps) {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 gsap-stagger-children">
         <div className="gsap-card premium-card rounded-2xl p-4 text-center glow-pulse">
-          <div className="relative z-10 text-3xl font-black text-green-trust">{leads.length}</div>
+          <div className="relative z-10 text-3xl font-black text-brand-red">{leads.length}</div>
           <p className="relative z-10 mt-1 text-xs font-bold text-ink-soft">leads calificados</p>
         </div>
         <div className="gsap-card premium-card rounded-2xl p-4 text-center glow-blue" style={{ animationDelay: '0.8s' }}>
@@ -82,7 +82,7 @@ export default function RealEstatePanel({ onBack }: RealEstatePanelProps) {
           <p className="relative z-10 mt-1 text-xs font-bold text-ink-soft">zonas con demanda</p>
         </div>
         <div className="gsap-card premium-card rounded-2xl p-4 text-center border-glow">
-          <div className="relative z-10 flex items-center justify-center gap-1 text-2xl font-extrabold text-green-trust">
+          <div className="relative z-10 flex items-center justify-center gap-1 text-2xl font-extrabold text-brand-red">
             <Building2 className="w-5 h-5" />
             <MapPin className="w-5 h-5" />
           </div>

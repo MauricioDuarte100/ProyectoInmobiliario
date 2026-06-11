@@ -13,7 +13,7 @@ export default function ChamberDecisionPanel({ decisions, stats }: Props) {
         {[
           { value: '1.248', label: 'Solicitudes analizadas', icon: Users, color: 'text-blue-tech', bg: 'bg-blue-50' },
           { value: `${stats.necesitaFinanciacion}%`, label: 'Necesita financiacion', icon: Building2, color: 'text-amber-500', bg: 'bg-amber-50' },
-          { value: `${stats.puedePreventa}%`, label: 'Puede entrar a preventa', icon: Building2, color: 'text-green-trust', bg: 'bg-green-50' },
+          { value: `${stats.puedePreventa}%`, label: 'Puede entrar a preventa', icon: Building2, color: 'text-brand-red', bg: 'bg-green-50' },
           { value: `${stats.buscaLote}%`, label: 'Busca lote', icon: LandPlot, color: 'text-violet-500', bg: 'bg-violet-50' },
           { value: `${stats.asistenciaPrioritaria}%`, label: 'Asistencia prioritaria', icon: AlertTriangle, color: 'text-red-500', bg: 'bg-red-50' },
           { value: `${stats.inversores}`, label: 'Inversores simulados', icon: Users, color: 'text-emerald-500', bg: 'bg-emerald-50' },
@@ -47,7 +47,7 @@ export default function ChamberDecisionPanel({ decisions, stats }: Props) {
                 style={{ borderLeft: `4px solid ${isHigh ? '#DC2626' : '#F59E0B'}`, boxShadow: `0 4px 20px rgba(0,0,0,0.03), inset 2px 0 12px ${isHigh ? 'rgba(220,38,38,0.04)' : 'rgba(245,158,11,0.04)'}` }}
               >
                 <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-night to-slate-800 text-base font-black text-white"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-night via-blue-900/40 to-blue-950 text-base font-black text-white"
                   style={{ boxShadow: isHigh ? '0 0 20px rgba(220,38,38,0.3), 0 0 8px rgba(220,38,38,0.5)' : '0 0 20px rgba(245,158,11,0.25), 0 0 8px rgba(245,158,11,0.4)' }}
                 >
                   {i + 1}

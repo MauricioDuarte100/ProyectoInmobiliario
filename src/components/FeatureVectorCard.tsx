@@ -13,9 +13,9 @@ type FeatureVectorCardProps = {
 
 const accentStyles = {
   green: {
-    badge: 'bg-green-trust/10 text-green-trust',
+    badge: 'bg-brand-red/10 text-brand-red',
     panel: 'from-emerald-50 to-white',
-    orb: 'bg-green-trust/14',
+    orb: 'bg-brand-red/14',
     stroke: '#1F8A5B',
   },
   blue: {

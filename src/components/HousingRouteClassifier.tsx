@@ -30,7 +30,7 @@ export default memo(function HousingRouteClassifier({ route, reason }: Props) {
         </div>
         <div className="space-y-3 min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-white bg-gradient-to-r from-green-trust to-blue-tech rounded-full px-3 py-1.5 shadow-md shadow-green-trust/20">
+            <span className="text-xs font-black uppercase tracking-[0.14em] text-white bg-gradient-to-r from-brand-red to-blue-tech rounded-full px-3 py-1.5 shadow-md shadow-brand-red/20">
               Ruta recomendada
             </span>
           </div>

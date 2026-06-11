@@ -24,7 +24,7 @@ function DashboardFallback() {
   return (
     <div className="flex items-center justify-center py-32">
       <div className="flex items-center gap-2 rounded-2xl bg-white/80 px-6 py-4 text-sm font-semibold text-ink-soft shadow-sm">
-        <svg className="h-5 w-5 animate-spin text-green-trust" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg className="h-5 w-5 animate-spin text-brand-red" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeDasharray="50" strokeLinecap="round" opacity="0.25" />
         </svg>
         Cargando panel...
@@ -237,7 +237,7 @@ function AppInner() {
                     </p>
                     <button
                       onClick={() => handleNavigate('form')}
-                      className="btn-primary mt-6 inline-flex items-center gap-2 px-6 py-3 text-sm font-black cursor-pointer shadow-lg shadow-green-trust/20"
+                      className="btn-primary mt-6 inline-flex items-center gap-2 px-6 py-3 text-sm font-black cursor-pointer shadow-lg shadow-brand-red/20"
                     >
                       Comenzar precalificacion
                     </button>

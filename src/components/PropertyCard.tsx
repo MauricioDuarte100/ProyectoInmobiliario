@@ -20,10 +20,10 @@ const typeIcons: Record<string, ComponentType<{ className?: string }>> = {
 }
 
 const typeGradients: Record<string, string> = {
-  Casa: 'from-emerald-900 via-green-trust to-emerald-200',
+  Casa: 'from-emerald-900 via-brand-red to-emerald-200',
   Departamento: 'from-slate-950 via-blue-tech to-sky-200',
   Duplex: 'from-slate-950 via-orange-opp to-amber-200',
-  Lote: 'from-slate-950 via-green-trust to-lime-200',
+  Lote: 'from-slate-950 via-brand-red to-lime-200',
 }
 
 export default memo(function PropertyCard({
@@ -63,7 +63,7 @@ export default memo(function PropertyCard({
           {property.type}
         </span>
         {suggestedRoute && (
-          <span className="absolute right-4 top-4 max-w-[52%] rounded-full bg-night/85 px-3 py-1.5 text-right text-xs font-black text-white shadow-md backdrop-blur-sm">
+          <span className="absolute right-4 top-4 max-w-[52%] rounded-full bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120]/85 px-3 py-1.5 text-right text-xs font-black text-white shadow-md backdrop-blur-sm">
             {suggestedRoute}
           </span>
         )}
@@ -74,7 +74,7 @@ export default memo(function PropertyCard({
       </div>
 
       <div className="relative z-10 p-5">
-        <h3 className="text-base font-black leading-tight text-text-primary group-hover:text-green-trust transition-colors duration-300">
+        <h3 className="text-base font-black leading-tight text-text-primary group-hover:text-brand-red transition-colors duration-300">
           {property.title}
         </h3>
         <div className="mt-1.5 flex items-center gap-1 text-sm font-medium text-ink-soft">
@@ -135,7 +135,7 @@ export default memo(function PropertyCard({
           <ul className="mt-4 space-y-1.5">
             {matchReasons.map((r, i) => (
               <li key={i} className="flex items-center gap-2 text-xs font-medium text-ink-soft">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-trust" />
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
                 {r}
               </li>
             ))}

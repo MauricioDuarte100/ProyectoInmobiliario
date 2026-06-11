@@ -11,8 +11,8 @@ export default function AgreementProposalGenerator({ proposal }: Props) {
 
   if (!generated) {
     return (
-      <div className="rounded-3xl bg-gradient-to-br from-night to-slate-800 p-8 text-center space-y-6 relative overflow-hidden shadow-xl">
-        <div className="hero-orb hero-orb-green" style={{ width: '200px', height: '200px', top: '-15%', right: '-8%', opacity: 0.25 }} />
+      <div className="rounded-3xl bg-gradient-to-br from-night via-blue-900/40 to-blue-950 p-8 text-center space-y-6 relative overflow-hidden shadow-xl">
+        <div className="hero-orb hero-orb-red" style={{ width: '200px', height: '200px', top: '-15%', right: '-8%', opacity: 0.25 }} />
         <div className="hero-orb hero-orb-blue" style={{ width: '160px', height: '160px', bottom: '-10%', left: '-5%', opacity: 0.2 }} />
         <div className="relative z-10 space-y-5">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-tech to-blue-700 shadow-xl shadow-blue-tech/20 mx-auto">
@@ -26,7 +26,7 @@ export default function AgreementProposalGenerator({ proposal }: Props) {
           </div>
           <button
             onClick={() => setGenerated(true)}
-            className="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-green-trust to-blue-tech px-6 py-3 text-sm font-bold text-white shadow-xl shadow-green-trust/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-red to-blue-tech px-6 py-3 text-sm font-bold text-white shadow-xl shadow-brand-red/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <Sparkles className="h-4 w-4" />
             Generar convenio piloto
@@ -42,13 +42,13 @@ export default function AgreementProposalGenerator({ proposal }: Props) {
       <div className="ornament-corner ornament-corner-br" />
       <div className="relative z-10 space-y-6">
         <div className="flex items-center gap-3 pb-4 border-b border-border">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-trust to-blue-tech shadow-md shadow-green-trust/20">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red to-blue-tech shadow-md shadow-brand-red/20">
             <CheckCircle className="h-5 w-5 text-white" />
           </div>
           <h3 className="font-bold text-xl text-text-primary">Convenio Piloto SimIA</h3>
         </div>
 
-        <div className="rounded-2xl bg-night p-6 text-white space-y-5 shadow-lg shadow-night/5">
+        <div className="rounded-2xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-6 text-white space-y-5 shadow-lg shadow-night/5">
           <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-400/20">
               <Building2 className="h-5 w-5 text-green-400" />

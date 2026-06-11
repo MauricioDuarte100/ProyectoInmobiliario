@@ -29,9 +29,9 @@ const icons: Record<ToastType, typeof CheckCircle2> = {
 }
 
 const colors: Record<ToastType, string> = {
-  success: 'bg-green-trust text-white',
+  success: 'bg-brand-red text-white',
   error: 'bg-red-alert text-white',
-  info: 'bg-night text-white',
+  info: 'bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] text-white',
 }
 
 let nextId = 0
