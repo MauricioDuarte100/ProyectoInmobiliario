@@ -2,7 +2,7 @@
 
 ## Objetivo De La Demo
 
-Mostrar en menos de 5 minutos que SimIA puede convertir informacion dispersa en decisiones habitacionales concretas.
+Mostrar en menos de 5 minutos que Cimia puede convertir informacion dispersa en decisiones habitacionales concretas.
 
 La demo debe ser visual, directa y guiada por un caso realista.
 
@@ -12,7 +12,7 @@ La demo debe ser visual, directa y guiada por un caso realista.
 
 Mensaje:
 
-> En Misiones muchas familias pagan alquiler, tienen ingresos mixtos o algo de ahorro, pero no saben que vivienda pueden alcanzar ni que alternativa les conviene. SimIA ordena esa informacion y propone rutas concretas.
+> En Misiones muchas familias pagan alquiler, tienen ingresos mixtos o algo de ahorro, pero no saben que vivienda pueden alcanzar ni que alternativa les conviene. Cimia ordena esa informacion y propone rutas concretas.
 
 Mostrar home con metricas y mapa simulado.
 
@@ -44,7 +44,7 @@ Mostrar:
 
 Mensaje:
 
-> SimIA no dice solamente aprobado o rechazado. Explica por que y que se puede hacer.
+> Cimia no dice solamente aprobado o rechazado. Explica por que y que se puede hacer.
 
 ### Minuto 3: Rutas Y Propiedades
 
@@ -87,13 +87,13 @@ Mostrar:
 
 Mensaje:
 
-> Para constructoras e inversores, SimIA muestra que tipo de vivienda conviene desarrollar y donde hay demanda real.
+> Para constructoras e inversores, Cimia muestra que tipo de vivienda conviene desarrollar y donde hay demanda real.
 
 ## Cierre
 
 Frase final:
 
-> SimIA no reemplaza bancos, inmobiliarias ni organismos publicos. Los conecta con inteligencia para que mas familias encuentren una ruta posible hacia la vivienda.
+> Cimia no reemplaza bancos, inmobiliarias ni organismos publicos. Los conecta con inteligencia para que mas familias encuentren una ruta posible hacia la vivienda.
 
 ## Preguntas Esperables
 
@@ -101,7 +101,7 @@ Frase final:
 
 Respuesta:
 
-> No. SimIA hace una precalificacion orientativa y explica rutas posibles. La aprobacion final siempre depende de bancos, programas, inmobiliarias o entidades correspondientes.
+> No. Cimia hace una precalificacion orientativa y explica rutas posibles. La aprobacion final siempre depende de bancos, programas, inmobiliarias o entidades correspondientes.
 
 ### "Los datos son reales?"
 

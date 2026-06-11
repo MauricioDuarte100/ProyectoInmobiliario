@@ -70,7 +70,7 @@ export default function GovernmentDashboard({ onBack }: Props) {
               Tablero de control para la <span className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-transparent">gestion habitacional publica.</span>
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
-              Monitorea el estado de la demanda de vivienda, visualiza alertas tempranas sobre necesidades criticas y optimiza la distribucion del presupuesto provincial basado en los perfiles generados por SimIA.
+              Monitorea el estado de la demanda de vivienda, visualiza alertas tempranas sobre necesidades criticas y optimiza la distribucion del presupuesto provincial basado en los perfiles generados por Cimia.
             </p>
           </div>
         </div>

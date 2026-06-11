@@ -87,7 +87,7 @@ export default function ResultsPage({
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-emerald-200">
               <Sparkles className="h-3.5 w-3.5" />
-              Resultado generado por SimIA
+              Resultado generado por Cimia
             </div>
             <h1 className="hero-title text-4xl font-black md:text-5xl text-white">
               Tu ruta habitacional ya esta{' '}
@@ -141,7 +141,7 @@ export default function ResultsPage({
                 Tu ruta habitacional ya esta lista. <span className="text-amber-200">Consulta tu expediente completo.</span>
               </h2>
               <p className="text-sm text-violet-100 leading-relaxed">
-                SimIA genero un informe detallado con tu puntaje, diagnostico, opciones de financiamiento y propiedades dentro de tu rango. Todo accesible desde tu panel ciudadano.
+                Cimia genero un informe detallado con tu puntaje, diagnostico, opciones de financiamiento y propiedades dentro de tu rango. Todo accesible desde tu panel ciudadano.
               </p>
             </div>
             <button
@@ -264,7 +264,7 @@ export default function ResultsPage({
             Financiamiento que podria acercarte a la compra
           </h2>
           <p className="mt-2 text-sm leading-6 text-ink-soft break-words">
-            SimIA cruza tu perfil con opciones de credito, mutuales y planes de constructora para priorizar caminos accionables.
+            Cimia cruza tu perfil con opciones de credito, mutuales y planes de constructora para priorizar caminos accionables.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 gsap-stagger-children">

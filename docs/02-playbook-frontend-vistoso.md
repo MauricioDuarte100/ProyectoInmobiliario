@@ -111,7 +111,7 @@ Mostrar puntos, heat zones o barras por demanda.
 
 Panel tipo asistente:
 
-- Titulo: "Analisis de SimIA".
+- Titulo: "Analisis de Cimia".
 - Texto generado por Gemini o fallback.
 - Lista de motivos.
 - Lista de recomendaciones.

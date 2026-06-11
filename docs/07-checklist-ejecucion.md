@@ -4,7 +4,7 @@
 
 - [ ] Leer `idea.md`.
 - [ ] Leer `plan.md`.
-- [ ] Confirmar que el MVP sera SimIA Precalificador Habitacional.
+- [ ] Confirmar que el MVP sera Cimia Precalificador Habitacional.
 - [ ] Crear proyecto React + Vite + TypeScript.
 - [ ] Instalar Tailwind CSS.
 - [ ] Instalar `lucide-react`.

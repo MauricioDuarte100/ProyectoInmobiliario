@@ -4,7 +4,7 @@ type LogoCarouselProps = {
   logos: string[]
 }
 
-const logoNames = ['Gobernacion', 'CIM', 'SimIA', 'Desarrollos', 'Inmobiliarias', 'Constructora']
+const logoNames = ['Gobernacion', 'CIM', 'Cimia', 'Desarrollos', 'Inmobiliarias', 'Constructora']
 
 export default memo(function LogoCarousel({ logos }: LogoCarouselProps) {
   const track = [...logos, ...logos, ...logos]
@@ -15,7 +15,7 @@ export default memo(function LogoCarousel({ logos }: LogoCarouselProps) {
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-brand-red">Ecosistema inmobiliario</p>
-            <h2 className="mt-1 text-2xl font-black text-text-primary">Actores que SimIA puede conectar</h2>
+            <h2 className="mt-1 text-2xl font-black text-text-primary">Actores que Cimia puede conectar</h2>
           </div>
           <p className="max-w-xl text-sm font-semibold leading-6 text-ink-soft">
             Red de actores para conectar demanda habitacional, oferta inmobiliaria, obras y financiamiento.

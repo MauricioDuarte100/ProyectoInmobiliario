@@ -6,7 +6,7 @@ import { recommendRoutes } from '../utils/routes'
 import { explainScore } from '../services/aiClient'
 import { demoProperties } from '../data/demoData'
 
-export function useSimiaState() {
+export function useCimiaState() {
   const [currentPage, setCurrentPage] = useState<AppPage>('home')
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null)

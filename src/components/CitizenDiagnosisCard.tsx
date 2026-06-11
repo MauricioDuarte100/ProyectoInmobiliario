@@ -28,7 +28,7 @@ export default memo(function CitizenDiagnosisCard({ diagnosis, city, income, sav
           <div>
             <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/8 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-brand-red shadow-sm">
               <Sparkles className="h-3.5 w-3.5" />
-              Diagnostico SimIA
+              Diagnostico Cimia
             </div>
             <h2 className="text-2xl font-black text-text-primary">Resultado de tu caso</h2>
           </div>
@@ -51,7 +51,7 @@ export default memo(function CitizenDiagnosisCard({ diagnosis, city, income, sav
                   <span className="text-3xl font-black">{score}</span>
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-[0.14em] text-slate-300">Score SimIA</div>
+                  <div className="text-xs uppercase tracking-[0.14em] text-slate-300">Score Cimia</div>
                   <div className="text-xl font-bold">{score}/100</div>
                 </div>
               </div>
@@ -69,7 +69,7 @@ export default memo(function CitizenDiagnosisCard({ diagnosis, city, income, sav
                 Solucion recomendada
               </div>
               <p className="text-base font-bold text-text-primary">{diagnosis.route}</p>
-              <p className="text-xs text-ink-soft mt-1">Ruta habitacional priorizada por SimIA</p>
+              <p className="text-xs text-ink-soft mt-1">Ruta habitacional priorizada por Cimia</p>
             </div>
 
             <div className="rounded-xl border border-blue-tech/15 bg-gradient-to-br from-blue-50/60 to-white p-4 shadow-sm">

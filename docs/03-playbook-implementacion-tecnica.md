@@ -15,8 +15,8 @@ No usar backend real para el core del MVP. Si se integra Gemini, usar un backend
 ## Comandos Iniciales
 
 ```bash
-npm create vite@latest simia-mvp -- --template react-ts
-cd simia-mvp
+npm create vite@latest cimia-mvp -- --template react-ts
+cd cimia-mvp
 npm install
 npm install lucide-react
 npm install -D tailwindcss postcss autoprefixer

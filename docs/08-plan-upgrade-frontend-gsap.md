@@ -1,4 +1,4 @@
-# Plan De Upgrade Frontend SimIA
+# Plan De Upgrade Frontend Cimia
 
 ## Diagnostico
 
@@ -73,7 +73,7 @@ Si se quiere seguir elevando el frontend, ejecutar estos pasos:
 
 El frontend debe comunicar en menos de 10 segundos:
 
-- Que SimIA es una plataforma seria.
+- Que Cimia es una plataforma seria.
 - Que usa IA de forma explicable.
 - Que conecta familia, propiedad y financiamiento.
 - Que sirve a inmobiliarias e inversores.

@@ -17,7 +17,7 @@ export default memo(function AiInsightPanel({ message, isLoading }: AiInsightPan
           <Bot className="h-5 w-5" />
         </div>
         <div>
-          <span className="block text-sm font-black text-blue-tech">SimIA Insight</span>
+          <span className="block text-sm font-black text-blue-tech">Cimia Insight</span>
           <span className="text-xs font-semibold text-ink-soft">Analisis habitacional explicado</span>
         </div>
       </div>

@@ -2,11 +2,11 @@
 
 ## Narrativa Del Producto
 
-SimIA resuelve un problema simple de explicar: muchas familias pagan alquiler o tienen ingresos mixtos, pero no saben que vivienda pueden alcanzar ni que alternativa habitacional les conviene.
+Cimia resuelve un problema simple de explicar: muchas familias pagan alquiler o tienen ingresos mixtos, pero no saben que vivienda pueden alcanzar ni que alternativa habitacional les conviene.
 
 Al mismo tiempo, las inmobiliarias reciben consultas poco calificadas, las constructoras no tienen datos claros de demanda y los inversores no saben donde colocar capital.
 
-SimIA conecta esas tres puntas con una experiencia guiada por IA.
+Cimia conecta esas tres puntas con una experiencia guiada por IA.
 
 ## Usuario Principal
 
@@ -51,11 +51,11 @@ Para constructoras e inversores:
 
 ## Flujo De La Demo
 
-1. El presentador abre SimIA.
+1. El presentador abre Cimia.
 2. Se muestra una pantalla inicial con metricas, mapa simulado y propuesta clara.
 3. Se inicia una precalificacion.
 4. Se carga un caso demo o se completa el formulario.
-5. SimIA calcula el Indice de Acceso Habitacional.
+5. Cimia calcula el Indice de Acceso Habitacional.
 6. Se muestra resultado con score, monto maximo y cuota maxima.
 7. La IA explica el resultado en lenguaje natural.
 8. Se muestran rutas habitacionales recomendadas.
@@ -169,7 +169,7 @@ Mostrar:
 ## Mensajes Clave Para La Presentacion
 
 - "No prometemos credito: ordenamos caminos posibles".
-- "SimIA explica el rechazo y propone una ruta de mejora".
+- "Cimia explica el rechazo y propone una ruta de mejora".
 - "La inmobiliaria recibe demanda precalificada, no consultas frias".
 - "La constructora puede construir segun demanda real".
 - "El MVP funciona con reglas y datos demo, pero el modelo escala con datos reales".

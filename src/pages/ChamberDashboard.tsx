@@ -106,7 +106,7 @@ export default function ChamberDashboard({ onBack }: Props) {
               Que es esto?
             </div>
             <h2 className="text-2xl md:text-3xl font-black max-w-3xl text-white">
-              SimIA convierte demanda habitacional dispersa en <span className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-transparent">decisiones concretas</span> para la Camara y el gobierno.
+              Cimia convierte demanda habitacional dispersa en <span className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-transparent">decisiones concretas</span> para la Camara y el gobierno.
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
               Este panel analiza <strong className="text-white">1.248 solicitudes simuladas</strong> y recomienda acciones institucionales basadas en datos. Desde identificar zonas con mayor demanda hasta generar convenios y proyectos, cada pestana transforma informacion en decisiones accionables para los actores del ecosistema habitacional de Misiones.
@@ -161,7 +161,7 @@ export default function ChamberDashboard({ onBack }: Props) {
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="h-5 w-5 text-green-400" />
-                  <h2 className="font-bold text-lg text-white">SimIA convierte demanda habitacional dispersa en decisiones concretas</h2>
+                  <h2 className="font-bold text-lg text-white">Cimia convierte demanda habitacional dispersa en decisiones concretas</h2>
                 </div>
                 <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
                   La Camara no necesita solo datos; necesita recomendaciones accionables. Este panel conecta la demanda detectada con acciones institucionales claras para Camara, gobierno y sector privado.

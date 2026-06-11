@@ -112,7 +112,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             ref={logoRef}
             onClick={() => onNavigate('home')}
             className="group flex cursor-pointer items-center gap-3 shrink-0"
-            aria-label="SimIA - Ir al inicio"
+            aria-label="Cimia - Ir al inicio"
           >
             <span className={`logo-shell flex items-center rounded-2xl px-3 py-2 transition-all duration-300 ${
               isHomeTop
@@ -308,7 +308,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             {/* Mobile Footer */}
             <div className="pt-3 border-t border-slate-100">
               <p className="text-[11px] text-ink-soft/40 text-center leading-relaxed">
-                SimIA — Sistema Inteligente Misionero
+                Cimia — Sistema Inteligente Misionero
                 <br />de Acceso a la Vivienda
               </p>
             </div>

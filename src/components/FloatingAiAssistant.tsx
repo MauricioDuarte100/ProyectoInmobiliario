@@ -50,7 +50,7 @@ export default function FloatingAiAssistant({
 }: FloatingAiAssistantProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([
-    { text: 'Hola! Soy SimIA. Preguntame sobre tu precalificacion o rutas habitacionales.', isUser: false },
+    { text: 'Hola! Soy Cimia. Preguntame sobre tu precalificacion o rutas habitacionales.', isUser: false },
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -110,7 +110,7 @@ export default function FloatingAiAssistant({
                   <Sparkles className="h-4 w-4" />
                 </motion.div>
                 <div>
-                  <p className="text-sm font-bold text-text-primary">SimIA Assistant</p>
+                  <p className="text-sm font-bold text-text-primary">Cimia Assistant</p>
                   <p className="text-xs text-ink-soft flex items-center gap-1.5">
                     {isLoading ? (
                       <>

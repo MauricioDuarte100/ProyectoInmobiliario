@@ -1,8 +1,8 @@
-# SimIA MVP Hackathon - Resumen Ejecutivo
+# Cimia MVP Hackathon - Resumen Ejecutivo
 
 ## Objetivo
 
-Construir un prototipo funcional y visualmente fuerte de **SimIA - Sistema Inteligente Misionero de Acceso a la Vivienda e Inversion Inmobiliaria**.
+Construir un prototipo funcional y visualmente fuerte de **Cimia - Sistema Inteligente Misionero de Acceso a la Vivienda e Inversion Inmobiliaria**.
 
 El objetivo de la primera version no es crear una plataforma financiera real, sino una demo convincente para hackathon que muestre como la IA puede:
 
@@ -30,11 +30,11 @@ Decision clave:
 
 Nombre del primer producto:
 
-**SimIA Precalificador Habitacional**
+**Cimia Precalificador Habitacional**
 
 Promesa:
 
-> SimIA transforma datos dispersos en rutas concretas de acceso a la vivienda. Precalifica familias, conecta oferta inmobiliaria con demanda real y recomienda alternativas de financiamiento para Misiones.
+> Cimia transforma datos dispersos en rutas concretas de acceso a la vivienda. Precalifica familias, conecta oferta inmobiliaria con demanda real y recomienda alternativas de financiamiento para Misiones.
 
 ## Alcance Funcional
 
@@ -47,7 +47,7 @@ El prototipo debe incluir:
 - Propiedades compatibles.
 - Panel para inmobiliarias.
 - Panel para demanda e inversion.
-- Asistente IA SimIA con Gemini o fallback local.
+- Asistente IA Cimia con Gemini o fallback local.
 
 ## Fuera De Alcance
 
@@ -67,10 +67,10 @@ No implementar en esta etapa:
 La demo es exitosa si en menos de 5 minutos permite mostrar:
 
 1. Una persona carga o elige un caso demo.
-2. SimIA calcula score, cuota maxima y monto alcanzable.
-3. SimIA explica por que califica, semicalifica o no califica.
-4. SimIA recomienda rutas habitacionales.
-5. SimIA muestra propiedades compatibles.
+2. Cimia calcula score, cuota maxima y monto alcanzable.
+3. Cimia explica por que califica, semicalifica o no califica.
+4. Cimia recomienda rutas habitacionales.
+5. Cimia muestra propiedades compatibles.
 6. Una inmobiliaria ve leads calificados.
 7. Un inversor o constructora ve demanda agregada por zona.
 

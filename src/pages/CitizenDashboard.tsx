@@ -30,7 +30,7 @@ const EXPEDIENTE_EVENTS: CaseEvent[] = [
   },
   {
     date: '16 Mar 2025',
-    actor: 'SimIA',
+    actor: 'Cimia',
     title: 'Analisis automatico del perfil',
     description: 'El sistema analizo ingresos, deudas, ahorro y capacidad de pago. Se genero un puntaje de acceso a vivienda.',
   },

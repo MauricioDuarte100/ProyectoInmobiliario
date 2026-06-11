@@ -1,6 +1,6 @@
 A continuación está el mismo plan, pero sin dividirlo por semanas ni días. Queda como una hoja de ruta continua, ordenada por etapas de ejecución.
 
-# Plan ultra detallado para hacer realidad SimIA
+# Plan ultra detallado para hacer realidad Cimia
 
 ## 1. Definir el proyecto
 
@@ -8,9 +8,9 @@ El proyecto debe presentarse como una plataforma de inteligencia artificial apli
 
 Nombre sugerido:
 
-**SimIA – Sistema Inteligente Misionero de Acceso a la Vivienda e Inversión Inmobiliaria**
+**Cimia – Sistema Inteligente Misionero de Acceso a la Vivienda e Inversión Inmobiliaria**
 
-La idea central es que SimIA permita que una persona cargue su situación económica y habitacional, reciba una precalificación orientativa, conozca qué tipo de vivienda puede alcanzar y sea conectada con inmobiliarias, constructoras, programas públicos, entidades financieras o alternativas privadas de financiamiento.
+La idea central es que Cimia permita que una persona cargue su situación económica y habitacional, reciba una precalificación orientativa, conozca qué tipo de vivienda puede alcanzar y sea conectada con inmobiliarias, constructoras, programas públicos, entidades financieras o alternativas privadas de financiamiento.
 
 El objetivo no es reemplazar a bancos, inmobiliarias ni organismos públicos. El objetivo es ordenar datos, reducir fricción, mejorar la transparencia y conectar mejor a quienes buscan vivienda con quienes tienen oferta, tierra, capital o soluciones habitacionales.
 
@@ -36,7 +36,7 @@ Los inversores no tienen datos claros para decidir dónde financiar proyectos.
 
 La información de propiedades, terrenos, financiamiento, catastro, programas públicos y capacidad adquisitiva está dispersa.
 
-SimIA resuelve ese problema creando una plataforma que mide la capacidad real de acceso, recomienda rutas habitacionales y conecta demanda, oferta y financiamiento.
+Cimia resuelve ese problema creando una plataforma que mide la capacidad real de acceso, recomienda rutas habitacionales y conecta demanda, oferta y financiamiento.
 
 ## 3. Quién sufre el problema
 
@@ -66,7 +66,7 @@ También sufren el problema las inmobiliarias, porque reciben muchos leads poco 
 
 ## 4. Solución propuesta
 
-SimIA funciona como una plataforma web con inteligencia artificial que recibe datos del usuario, calcula su capacidad habitacional, clasifica su perfil, recomienda una ruta de acceso a la vivienda y lo conecta con opciones reales.
+Cimia funciona como una plataforma web con inteligencia artificial que recibe datos del usuario, calcula su capacidad habitacional, clasifica su perfil, recomienda una ruta de acceso a la vivienda y lo conecta con opciones reales.
 
 El sistema debe responder preguntas simples como:
 
@@ -436,7 +436,7 @@ El objetivo del MVP es demostrar que existe demanda, que el scoring orienta deci
 
 La propuesta para las inmobiliarias debe ser clara:
 
-SimIA no les quita clientes. Les entrega compradores mejor calificados.
+Cimia no les quita clientes. Les entrega compradores mejor calificados.
 
 Beneficios:
 
@@ -456,7 +456,7 @@ El acuerdo inicial puede ser simple:
 
 La inmobiliaria aporta propiedades.
 
-SimIA aporta leads calificados.
+Cimia aporta leads calificados.
 
 La Cámara puede actuar como garante o articulador.
 
@@ -470,7 +470,7 @@ El incentivo inicial puede ser una prueba gratuita. Luego se puede cobrar por su
 
 La propuesta para constructoras debe centrarse en reducción de riesgo.
 
-SimIA les puede mostrar qué tipo de vivienda demanda el mercado antes de construir.
+Cimia les puede mostrar qué tipo de vivienda demanda el mercado antes de construir.
 
 La constructora puede saber:
 
@@ -504,15 +504,15 @@ Barrios abiertos.
 
 Desarrollos en pozo.
 
-Para constructoras de Brasil o Santa Catarina, SimIA puede servir como herramienta de entrada al mercado argentino, mostrando demanda validada, zonas atractivas y compradores precalificados.
+Para constructoras de Brasil o Santa Catarina, Cimia puede servir como herramienta de entrada al mercado argentino, mostrando demanda validada, zonas atractivas y compradores precalificados.
 
 ## 18. Playbook de convenios financieros
 
-SimIA debe acercarse a bancos, mutuales, cooperativas, financieras y fondos privados con una propuesta concreta:
+Cimia debe acercarse a bancos, mutuales, cooperativas, financieras y fondos privados con una propuesta concreta:
 
 No pedimos que aprueben automáticamente. Les enviamos usuarios mejor ordenados, con documentación inicial y capacidad de pago estimada.
 
-Datos que puede entregar SimIA:
+Datos que puede entregar Cimia:
 
 Ingreso estimado.
 
@@ -572,7 +572,7 @@ Auditoría.
 
 El flujo sería:
 
-SimIA detecta demanda.
+Cimia detecta demanda.
 
 Se identifica un terreno.
 
@@ -616,7 +616,7 @@ No prometer adjudicación de vivienda.
 
 Texto recomendado:
 
-“SimIA realiza una precalificación orientativa. No garantiza aprobación bancaria ni adjudicación de vivienda. Tus datos se usan para calcular alternativas habitacionales y conectarte con opciones compatibles.”
+“Cimia realiza una precalificación orientativa. No garantiza aprobación bancaria ni adjudicación de vivienda. Tus datos se usan para calcular alternativas habitacionales y conectarte con opciones compatibles.”
 
 ## 21. Arquitectura técnica
 
@@ -700,7 +700,7 @@ Cada usuario debe tener un identificador. Cada propiedad también. El sistema de
 
 El primer producto comercial no debe ser toda la plataforma. Debe ser:
 
-**SimIA Precalificador Habitacional**
+**Cimia Precalificador Habitacional**
 
 Debe hacer:
 
@@ -946,7 +946,7 @@ Ese caso vale más que una idea abstracta.
 
 El primer MVP debería llamarse:
 
-**SimIA Precalificador Habitacional**
+**Cimia Precalificador Habitacional**
 
 Debe hacer únicamente esto:
 
@@ -972,4 +972,4 @@ Ese MVP ya permite demostrar valor social, comercial y productivo.
 
 ## 32. Frase final para presentar
 
-**SimIA transforma datos dispersos en rutas concretas de acceso a la vivienda. Precalifica familias, conecta oferta inmobiliaria con demanda real, recomienda alternativas de financiamiento y genera información estratégica para constructoras, inversores y organismos públicos de Misiones.**
+**Cimia transforma datos dispersos en rutas concretas de acceso a la vivienda. Precalifica familias, conecta oferta inmobiliaria con demanda real, recomienda alternativas de financiamiento y genera información estratégica para constructoras, inversores y organismos públicos de Misiones.**

@@ -19,7 +19,7 @@ export default function AgreementProposalGenerator({ proposal }: Props) {
             <FileText className="h-8 w-8 text-white" />
           </div>
           <div>
-            <h3 className="font-bold text-xl text-white mb-2">Convenio Piloto SimIA</h3>
+            <h3 className="font-bold text-xl text-white mb-2">Convenio Piloto Cimia</h3>
             <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
               La IA redacta una propuesta que la Camara puede presentar a constructores, entidades y gobierno. Basada en datos reales de demanda y capacidades detectadas.
             </p>
@@ -45,7 +45,7 @@ export default function AgreementProposalGenerator({ proposal }: Props) {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red to-blue-tech shadow-md shadow-brand-red/20">
             <CheckCircle className="h-5 w-5 text-white" />
           </div>
-          <h3 className="font-bold text-xl text-text-primary">Convenio Piloto SimIA</h3>
+          <h3 className="font-bold text-xl text-text-primary">Convenio Piloto Cimia</h3>
         </div>
 
         <div className="rounded-2xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-6 text-white space-y-5 shadow-lg shadow-night/5">
@@ -98,7 +98,7 @@ export default function AgreementProposalGenerator({ proposal }: Props) {
         </div>
 
         <p className="text-xs text-ink-soft italic px-1">
-          Este documento es una propuesta orientativa generada por SimIA. No constituye un instrumento legal vinculante. Debe ser revisado y validado por las partes antes de su implementacion.
+          Este documento es una propuesta orientativa generada por Cimia. No constituye un instrumento legal vinculante. Debe ser revisado y validado por las partes antes de su implementacion.
         </p>
       </div>
     </div>

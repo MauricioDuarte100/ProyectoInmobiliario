@@ -1,4 +1,4 @@
-# 🏡 SimIA — Sistema Inteligente Misionero de Acceso a la Vivienda
+# 🏡 Cimia — Sistema Inteligente Misionero de Acceso a la Vivienda
 
 > **Precalificador Habitacional con IA + Mapas Interactivos + Simulación Financiera**
 
@@ -52,6 +52,32 @@ npm run dev
 npm run build
 ```
 
+## 🔐 Configuración de Gemini
+
+La integración con Gemini ahora corre desde una función serverless en `api/ai.js`.
+
+- Nunca guardes la clave en `src/` ni en archivos versionados.
+- Usá una clave rotada en `GEMINI_API_KEY`.
+- Si la clave no está configurada, Cimia sigue respondiendo con fallback local.
+
+Ejemplo local:
+
+```bash
+cp .env.example .env
+```
+
+Luego cargá en `.env`:
+
+```bash
+GEMINI_API_KEY=tu-clave-rotada
+```
+
+Para desarrollo local con funciones de Vercel conviene usar:
+
+```bash
+vercel dev
+```
+
 ## 🎯 Flujo de Uso
 
 1. **Home** → Vista principal con métricas, mapa de demanda y programas de financiamiento
@@ -65,6 +91,12 @@ npm run build
 El proyecto está preparado para deploy en **Vercel** con zero configuración:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+Antes de publicar Gemini real en Vercel:
+
+1. Configurá `GEMINI_API_KEY` en Project Settings > Environment Variables.
+2. Hacé el deploy.
+3. Verificá que `/api/ai` responda desde el dominio publicado.
 
 ## 🧑‍💻 Desarrollo
 

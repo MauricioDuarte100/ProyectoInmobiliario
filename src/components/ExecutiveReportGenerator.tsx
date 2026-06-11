@@ -27,7 +27,7 @@ export default function ExecutiveReportGenerator({ report }: Props) {
             <FileText className="h-8 w-8 text-white" />
           </div>
           <div>
-            <h3 className="font-bold text-xl text-white mb-2">Informe Ejecutivo SimIA</h3>
+            <h3 className="font-bold text-xl text-white mb-2">Informe Ejecutivo Cimia</h3>
             <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
               La IA genera un reporte para autoridades con hallazgos, estadisticas y recomendaciones accionables. Basado en el cruce de demanda, oferta y capacidades detectadas.
             </p>
@@ -53,12 +53,12 @@ export default function ExecutiveReportGenerator({ report }: Props) {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-red to-blue-tech shadow-md shadow-brand-red/20">
             <CheckCircle className="h-5 w-5 text-white" />
           </div>
-          <h3 className="font-bold text-xl text-text-primary">Informe Ejecutivo SimIA</h3>
+          <h3 className="font-bold text-xl text-text-primary">Informe Ejecutivo Cimia</h3>
         </div>
 
         <div className="rounded-2xl bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] p-6 md:p-8 text-white space-y-8 shadow-lg shadow-night/5">
           <p className="text-base leading-relaxed text-slate-200 border-b border-white/10 pb-6">
-            SimIA analizo <strong className="text-white font-black">{report.totalSolicitudes.toLocaleString('es-AR')}</strong> solicitudes habitacionales simuladas en la provincia.
+            Cimia analizo <strong className="text-white font-black">{report.totalSolicitudes.toLocaleString('es-AR')}</strong> solicitudes habitacionales simuladas en la provincia.
           </p>
 
           <div>
@@ -111,7 +111,7 @@ export default function ExecutiveReportGenerator({ report }: Props) {
         </div>
 
         <p className="text-xs text-ink-soft italic px-1">
-          Informe generado automaticamente por SimIA con datos simulados para fines demostrativos. Los valores son orientativos y no constituyen asesoramiento legal o financiero.
+          Informe generado automaticamente por Cimia con datos simulados para fines demostrativos. Los valores son orientativos y no constituyen asesoramiento legal o financiero.
         </p>
       </div>
     </div>

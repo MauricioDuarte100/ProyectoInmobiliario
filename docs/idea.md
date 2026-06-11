@@ -359,8 +359,8 @@ Revision humana
 Mostrar código
 Esta arquitectura tiene una ventaja práctica importante para Posadas y Misiones: evita construir soluciones aisladas. Una vez que la identidad maestra de inmueble y el índice documental están bien resueltos, el mismo backend sirve para valuación, market intelligence, matching, regularización, financiamiento y automatización operativa. En otras palabras, el principal activo no será “el modelo”, sino la base parcelaria-documental unificada y gobernada sobre la cual los modelos se vuelven reutilizables y auditables. 
 
-Créditos hipotecarios, acceso a los créditos al público. Planea iphoda privada, subasta, remates,creíble accesible, hay terrero, hay soluciones, hay data, calificación de personas, no todos pueden acceder a iphoda, medir pueden en base al nivel adquisitivo según el ipec si la clase media puede acceder. Crowdfunding inverson cámara inmobiliaria sea una gran inmobiliaria SimIA , estrategia de venta firma de convenio de santa Catalina una empresa constructora que son productores en Brasil más vendida, quieren invertir me Brasil... Un cliente que quiera. Cuál es el rechazo? Cuáles son los beneficios, cuota de entrada? Seo por oferta,herramienta que permita tener fondos financiera tipo crédito,beneficios burocráticos una gran inmobiliaria, que genere beneficios 
-Lo que estás describiendo puede transformarse en algo mucho más ambicioso que un simple portal inmobiliario. La idea podría convertirse en una plataforma provincial llamada provisionalmente "SimIA" (Sistema Inmobiliario Inteligente de Misiones), que funcione como una mezcla entre inmobiliaria digital, scoring financiero, marketplace de inversión y motor de acceso a la vivienda.
+Créditos hipotecarios, acceso a los créditos al público. Planea iphoda privada, subasta, remates,creíble accesible, hay terrero, hay soluciones, hay data, calificación de personas, no todos pueden acceder a iphoda, medir pueden en base al nivel adquisitivo según el ipec si la clase media puede acceder. Crowdfunding inverson cámara inmobiliaria sea una gran inmobiliaria Cimia , estrategia de venta firma de convenio de santa Catalina una empresa constructora que son productores en Brasil más vendida, quieren invertir me Brasil... Un cliente que quiera. Cuál es el rechazo? Cuáles son los beneficios, cuota de entrada? Seo por oferta,herramienta que permita tener fondos financiera tipo crédito,beneficios burocráticos una gran inmobiliaria, que genere beneficios 
+Lo que estás describiendo puede transformarse en algo mucho más ambicioso que un simple portal inmobiliario. La idea podría convertirse en una plataforma provincial llamada provisionalmente "Cimia" (Sistema Inmobiliario Inteligente de Misiones), que funcione como una mezcla entre inmobiliaria digital, scoring financiero, marketplace de inversión y motor de acceso a la vivienda.
 
 El problema actual en Misiones es que existe oferta de terrenos, viviendas y desarrollos, existe dinero privado dispuesto a invertir, existen programas públicos como IPRODHA, pero la información está fragmentada y muchas familias no califican para créditos tradicionales aunque sí podrían pagar una cuota similar a un alquiler.
 
@@ -594,7 +594,7 @@ Es una especie de "mini banco inmobiliario provincial".
 
 Si esto fuera un hackathon, yo enfocaría el proyecto en una única propuesta potente:
 
-"SimIA: Plataforma Inteligente de Acceso a la Vivienda para Misiones"
+"Cimia: Plataforma Inteligente de Acceso a la Vivienda para Misiones"
 
 Con 3 módulos:
 
@@ -603,7 +603,7 @@ Con 3 módulos:
 3. Mapa de Oportunidades Inmobiliarias con IA.
 
 Eso ataca directamente el problema planteado: acceso a la vivienda, transparencia del mercado, inversión privada y desarrollo urbano. Además es un proyecto realista para presentar ante la Cámara Inmobiliaria, el gobierno provincial y potenciales inversores brasileños.
-# SimIA – Sistema Inteligente de Acceso a la Vivienda e Inversión Inmobiliaria
+# Cimia – Sistema Inteligente de Acceso a la Vivienda e Inversión Inmobiliaria
 
 ## 1. Descripción clara, concisa y real del desafío a resolver
 
@@ -638,7 +638,7 @@ El problema principal es la falta de un sistema inteligente que conecte oferta, 
 
 ## 3. Descripción simple y estructurada de la herramienta
 
-SimIA es una plataforma web inteligente que evalúa la capacidad real de acceso a la vivienda de cada ciudadano y lo conecta automáticamente con la mejor alternativa disponible.
+Cimia es una plataforma web inteligente que evalúa la capacidad real de acceso a la vivienda de cada ciudadano y lo conecta automáticamente con la mejor alternativa disponible.
 
 La plataforma:
 
@@ -745,7 +745,7 @@ Fuente:
 
 ### Paso 1
 
-El usuario ingresa a SimIA.
+El usuario ingresa a Cimia.
 
 ### Paso 2
 
@@ -845,7 +845,7 @@ USD 15.000 a USD 40.000.
 
 ## 9. Propuesta de valor diferencial
 
-SimIA no reemplaza a bancos, inmobiliarias o programas públicos.
+Cimia no reemplaza a bancos, inmobiliarias o programas públicos.
 
 Los conecta en un único ecosistema inteligente capaz de identificar oportunidades de acceso a la vivienda para personas que hoy quedan fuera del sistema tradicional.
 

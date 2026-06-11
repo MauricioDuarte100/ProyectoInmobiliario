@@ -35,7 +35,7 @@ export default function ChamberDecisionPanel({ decisions, stats }: Props) {
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-md shadow-amber-500/20">
             <Lightbulb className="h-6 w-6 text-white" />
           </div>
-          <h3 className="font-bold text-text-primary text-xl">Recomendacion Estrategica SimIA</h3>
+          <h3 className="font-bold text-text-primary text-xl">Recomendacion Estrategica Cimia</h3>
         </div>
         <div className="space-y-4">
           {decisions.map((d, i) => {

@@ -130,7 +130,7 @@ Salida:
 ## Prompt Base
 
 ```txt
-Sos SimIA, un asistente de precalificacion habitacional para Misiones, Argentina.
+Sos Cimia, un asistente de precalificacion habitacional para Misiones, Argentina.
 
 Tu tarea es explicar resultados orientativos de acceso a vivienda de forma clara, responsable y accionable.
 
@@ -154,7 +154,7 @@ Respuesta:
 Si Gemini falla, mostrar:
 
 ```txt
-SimIA genero una precalificacion orientativa con reglas locales. Tu resultado indica que estas en estado {clasificacion}. La cuota maxima sugerida es {cuota} y el monto estimado alcanzable es {monto}. La ruta mas conveniente es {ruta}. Esta informacion no garantiza aprobacion crediticia ni adjudicacion de vivienda.
+Cimia genero una precalificacion orientativa con reglas locales. Tu resultado indica que estas en estado {clasificacion}. La cuota maxima sugerida es {cuota} y el monto estimado alcanzable es {monto}. La ruta mas conveniente es {ruta}. Esta informacion no garantiza aprobacion crediticia ni adjudicacion de vivienda.
 ```
 
 ## Criterios De Prueba

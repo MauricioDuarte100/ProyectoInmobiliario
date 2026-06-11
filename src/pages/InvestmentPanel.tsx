@@ -59,7 +59,7 @@ export default function InvestmentPanel({ onBack }: InvestmentPanelProps) {
               <span className="pulse-dot" />
               Mapa de Demanda
             </h2>
-            <p className="text-sm text-ink-soft">Gran Posadas - demanda sintetizada por SimIA</p>
+            <p className="text-sm text-ink-soft">Gran Posadas - demanda sintetizada por Cimia</p>
           </div>
           <span className="px-3 py-1 rounded-full bg-brand-red/10 text-brand-red text-xs font-semibold flex items-center gap-1 breather">
             <TrendingUp className="w-3.5 h-3.5" />

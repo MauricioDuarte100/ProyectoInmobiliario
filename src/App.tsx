@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { AppPage } from './types/simia'
-import { useSimiaState } from './hooks/useSimiaState'
+import { useCimiaState } from './hooks/useSimiaState'
 import Header from './components/Header'
 import HomeDemo from './pages/HomeDemo'
 import PrequalificationForm from './pages/PrequalificationForm'
@@ -49,7 +49,7 @@ function AppInner() {
     handleNavigate,
     handleCalculate,
     handleBack,
-  } = useSimiaState()
+  } = useCimiaState()
   const { addToast } = useToast()
 
   useEffect(() => {

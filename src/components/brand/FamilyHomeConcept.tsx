@@ -156,7 +156,7 @@ export default function FamilyHomeConcept({ className = '', variant = 'light' }:
         <line x1="96.5" y1="40" x2="82" y2="42" stroke="#2563EB" strokeWidth="1" strokeDasharray="2 2" opacity="0.5" />
 
         {/* Labels */}
-        <text x="60" y="90" fontFamily="system-ui" fontSize="12" fontWeight="900" fill={textColor} textAnchor="middle" letterSpacing="0.5">Motor SimIA</text>
+        <text x="60" y="90" fontFamily="system-ui" fontSize="12" fontWeight="900" fill={textColor} textAnchor="middle" letterSpacing="0.5">Motor Cimia</text>
         <text x="60" y="104" fontFamily="system-ui" fontSize="8" fontWeight="800" fill="#1F8A5B" textAnchor="middle" letterSpacing="2">IA ACTIVA</text>
         <text x="60" y="116" fontFamily="system-ui" fontSize="8" fontWeight="600" fill={subtextColor} textAnchor="middle">Rutas de Acceso</text>
       </g>

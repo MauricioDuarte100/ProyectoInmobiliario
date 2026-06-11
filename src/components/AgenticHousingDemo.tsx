@@ -112,10 +112,10 @@ export default function AgenticHousingDemo() {
           <Brain className="w-4 h-4" /> Motor Agentico Habitacional
         </p>
         <h2 className="mt-2 text-3xl font-bold text-slate-950">
-          SimIA interpreta una necesidad y coordina agentes especializados
+          Cimia interpreta una necesidad y coordina agentes especializados
         </h2>
         <p className="mt-3 max-w-3xl text-slate-700">
-          El ciudadano expresa su necesidad por audio. SimIA transcribe,
+          El ciudadano expresa su necesidad por audio. Cimia transcribe,
           detecta intención y activa agentes para encontrar oportunidades,
           financiación, lotes, inmobiliarias y convenios.
         </p>
@@ -202,7 +202,7 @@ export default function AgenticHousingDemo() {
             className="mt-6 rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-800 flex items-center gap-2"
           >
             <Brain className="w-5 h-5" />
-            Activar agentes SimIA
+            Activar agentes Cimia
           </button>
         </motion.div>
       )}
@@ -381,7 +381,7 @@ function FinalReportPanel() {
       
       <div className="relative z-10">
         <p className="text-sm font-bold tracking-widest text-blue-400 uppercase flex items-center gap-2">
-          <FileText className="w-4 h-4" /> Informe Agentico SimIA
+          <FileText className="w-4 h-4" /> Informe Agentico Cimia
         </p>
 
         <h3 className="mt-3 text-3xl font-bold">
