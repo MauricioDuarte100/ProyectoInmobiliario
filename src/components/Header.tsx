@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { AppPage } from '../types/simia'
 import { Building2, Home, Landmark, Menu, X, ChevronRight, ArrowRight } from 'lucide-react'
 import logoMain from '../../assets/logoMain.png'
+import logoBackground from '../../assets/logo4.png'
 
 type HeaderProps = {
   currentPage: AppPage
@@ -31,6 +32,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
   const logoRef = useRef<HTMLButtonElement>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [showHomeHeader, setShowHomeHeader] = useState(false)
 
   useEffect(() => {
     setMobileOpen(false)
@@ -39,11 +41,24 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      if (currentPage !== 'home') {
+        setShowHomeHeader(true)
+        return
+      }
+
+      const openingSection = document.querySelector('.home-opening-section')
+      if (!openingSection) {
+        setShowHomeHeader(window.scrollY > Math.max(window.innerHeight * 0.72, 520))
+        return
+      }
+
+      const rect = openingSection.getBoundingClientRect()
+      setShowHomeHeader(rect.bottom <= window.innerHeight * 0.55)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [currentPage])
 
   useEffect(() => {
     const el = headerRef.current
@@ -93,13 +108,18 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
 
   const bcrumb = breadcrumbs[currentPage]
   const isHomeTop = currentPage === 'home' && !isScrolled
+  const hideDuringOpening = currentPage === 'home' && !showHomeHeader
   const showNav = currentPage !== 'home'
 
   return (
     <>
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`z-50 transition-all duration-300 ${
+          currentPage === 'home' ? 'fixed inset-x-0 top-0' : 'sticky top-0'
+        } ${
+          hideDuringOpening ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
+        } ${
           isHomeTop
             ? 'border-b border-white/8 bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120]/40 backdrop-blur-xl shadow-none'
             : 'border-b border-slate-200/40 bg-white/82 backdrop-blur-2xl shadow-[0_1px_3px_rgba(15,23,42,0.04)]'
@@ -112,26 +132,38 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             ref={logoRef}
             onClick={() => onNavigate('home')}
             className="group flex cursor-pointer items-center gap-3 shrink-0"
-            aria-label="Cimia - Ir al inicio"
+            aria-label="CIM-IA - Ir al inicio"
           >
-            <span className={`logo-shell flex items-center rounded-2xl px-3 py-2 transition-all duration-300 ${
+            <span className={`logo-shell relative hidden overflow-hidden rounded-2xl px-5 py-3 transition-all duration-300 lg:block ${
+              isHomeTop
+                ? 'bg-white/10 ring-1 ring-white/12 shadow-[0_10px_30px_rgba(11,18,32,0.18)]'
+                : 'bg-white/88 ring-1 ring-slate-200/80 shadow-[0_10px_26px_rgba(15,23,42,0.08)]'
+            }`}>
+              <img
+                src={logoBackground}
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-3 top-1/2 h-16 w-auto -translate-y-1/2 opacity-[0.12] blur-[0.2px]"
+              />
+              <span className="relative z-10 block leading-none text-left">
+                <span className={`block text-[0.7rem] font-black uppercase tracking-[0.22em] ${
+                  isHomeTop ? 'text-slate-300' : 'text-ink-soft/70'
+                }`}>Sistema Habitacional</span>
+                <span className={`block text-sm font-bold tracking-tight ${
+                  isHomeTop ? 'text-white' : 'text-text-primary'
+                }`}>Motor de acceso inteligente</span>
+              </span>
+            </span>
+            <span className={`logo-shell flex items-center rounded-2xl px-3 py-2 transition-all duration-300 lg:hidden ${
               isHomeTop
                 ? 'bg-white/10 ring-1 ring-white/12 shadow-[0_10px_30px_rgba(11,18,32,0.18)]'
                 : 'bg-white/88 ring-1 ring-slate-200/80 shadow-[0_10px_26px_rgba(15,23,42,0.08)]'
             }`}>
               <img
                 src={logoMain}
-                alt="CIMIA"
-                className="h-9 w-auto object-contain sm:h-10"
+                alt="CIM-IA"
+                className="h-10 w-auto object-contain sm:h-11"
               />
-            </span>
-            <span className="hidden leading-none text-left lg:block">
-              <span className={`block text-[0.7rem] font-black uppercase tracking-[0.22em] ${
-                isHomeTop ? 'text-slate-300' : 'text-ink-soft/70'
-              }`}>Sistema Habitacional</span>
-              <span className={`block text-sm font-bold tracking-tight ${
-                isHomeTop ? 'text-white' : 'text-text-primary'
-              }`}>Motor de acceso inteligente</span>
             </span>
           </button>
 
@@ -228,7 +260,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <span className="flex items-center rounded-xl bg-white px-2.5 py-2 shadow-sm ring-1 ring-slate-200/80">
-                  <img src={logoMain} alt="CIMIA" className="h-8 w-auto object-contain" />
+                  <img src={logoMain} alt="CIM-IA" className="h-9 w-auto object-contain" />
                 </span>
                 <span>
                   <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-ink-soft/60">Sistema Habitacional</span>
@@ -308,7 +340,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             {/* Mobile Footer */}
             <div className="pt-3 border-t border-slate-100">
               <p className="text-[11px] text-ink-soft/40 text-center leading-relaxed">
-                Cimia — Sistema Inteligente Misionero
+                CIM-IA — Sistema Inteligente Misionero
                 <br />de Acceso a la Vivienda
               </p>
             </div>

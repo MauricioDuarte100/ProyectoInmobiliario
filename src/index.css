@@ -688,8 +688,8 @@ button {
 }
 
 .logo-tile img {
-  filter: grayscale(1);
-  opacity: 0.78;
+  filter: none;
+  opacity: 1;
   transition: filter 220ms ease, opacity 220ms ease, transform 220ms ease;
 }
 
@@ -805,6 +805,25 @@ button {
 }
 
 /* ===== HERO ORBS ===== */
+.home-opening-section {
+  isolation: isolate;
+}
+
+.home-opening-image {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.home-opening-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-main-content {
+  will-change: transform;
+}
+
 .hero-orb {
   position: absolute;
   border-radius: 50%;
@@ -820,6 +839,12 @@ button {
 .hero-orb-blue {
   background: rgba(37, 99, 235, 0.13);
   animation: floatSlow 9s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .home-opening-section {
+    height: 106vh;
+  }
 }
 
 /* ===== STAT BAR ===== */

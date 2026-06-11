@@ -21,7 +21,16 @@ import LogoCarousel from '../components/LogoCarousel'
 import FeatureVectorCard from '../components/FeatureVectorCard'
 import { AIParticleField, FamilyHomeConcept } from '../components/brand'
 import AgenticHousingDemo from '../components/AgenticHousingDemo'
-import logoMain from '../../assets/logoMain.png'
+import logoFooter from '../../assets/logo5.jpeg'
+import forCarrusel1 from '../../assets/forCarrusel1.png'
+import forCarrusel2 from '../../assets/forCarrusel2.png'
+import forCarrusel3 from '../../assets/forCarrrusel3.png'
+import forCarrusel4 from '../../assets/forCarrusel4.png'
+import forCarrusel5 from '../../assets/forCarrusel5.png'
+import forCarrusel6 from '../../assets/forCarrusel6.png'
+import fondoInicio from '../../assets/fondoInicio.png'
+import forLanding1 from '../../assets/forLanding1.png'
+import forLanding2 from '../../assets/forLanding2.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -33,12 +42,12 @@ type HomeDemoProps = {
 
 
 const logoImages = [
-  '/gallery-1.png',
-  '/gallery-2.png',
-  '/gallery-3.png',
-  '/gallery-4.png',
-  '/gallery-5.png',
-  '/gallery-6.png',
+  forCarrusel1,
+  forCarrusel2,
+  forCarrusel3,
+  forCarrusel4,
+  forCarrusel5,
+  forCarrusel6,
 ]
 
 const featureCards = [
@@ -151,19 +160,57 @@ const caseProfiles = {
 } as const
 
 export default function HomeDemo({ onNavigate }: HomeDemoProps) {
-  const heroImage = '/hero-cimia-new.png'
+  const heroImage = forLanding2
+  const pageRef = useRef<HTMLDivElement>(null)
+  const openingRef = useRef<HTMLElement>(null)
+  const mainContentRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
   const glassCardRef = useRef<HTMLDivElement>(null)
   const [selectedCase, setSelectedCase] = useState<keyof typeof caseProfiles>('soltero')
 
   useLayoutEffect(() => {
+    const page = pageRef.current
+    const opening = openingRef.current
+    const mainContent = mainContentRef.current
     const hero = heroRef.current
     const glow = glowRef.current
     const card = glassCardRef.current
-    if (!hero) return
+    if (!page || !hero) return
+    let onMouseMove: ((e: MouseEvent) => void) | undefined
+    let onMouseLeave: (() => void) | undefined
 
     const ctx = gsap.context(() => {
+      if (opening) {
+        const openingImage = opening.querySelector<HTMLElement>('[data-home-opening-image]')
+
+        gsap.set(mainContent, { y: -220 })
+
+        const openingTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: opening,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.85,
+          },
+        })
+
+        if (openingImage) {
+          openingTimeline
+            .fromTo(
+              openingImage,
+              { scale: 1.02, yPercent: 0, opacity: 1 },
+              { scale: 0.86, yPercent: 8, opacity: 0, ease: 'none' },
+              0,
+            )
+            .to(
+              mainContent,
+              { y: 0, ease: 'none' },
+              0,
+            )
+        }
+      }
+
       // Shifting background orbs infinite animation
       gsap.to('.orb-drift-1', {
         x: 'random(-45, 45)',
@@ -183,7 +230,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
       })
 
       // Mouse interactive parallax and tilt using pure GSAP for performance
-      const onMouseMove = (e: MouseEvent) => {
+      onMouseMove = (e: MouseEvent) => {
         const rect = hero.getBoundingClientRect()
         const x = e.clientX - rect.left
         const y = e.clientY - rect.top
@@ -218,7 +265,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
         }
       }
 
-      const onMouseLeave = () => {
+      onMouseLeave = () => {
         if (glow) {
           gsap.to(glow, {
             opacity: 0,
@@ -324,17 +371,35 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
           start: 'top 85%',
         }
       })
-    }, hero)
+    }, page)
 
-    return () => ctx.revert()
+    return () => {
+      if (onMouseMove) hero.removeEventListener('mousemove', onMouseMove)
+      if (onMouseLeave) hero.removeEventListener('mouseleave', onMouseLeave)
+      ctx.revert()
+    }
   }, [])
 
   return (
-    <div className="min-h-screen">
-      <section
-        ref={heroRef}
-        className="relative overflow-hidden bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] px-4 md:px-8 lg:px-10"
-      >
+    <div ref={pageRef} className="min-h-screen bg-[#F5F7FB]">
+      <section ref={openingRef} className="home-opening-section relative h-[116vh] bg-[#071120]">
+        <div className="sticky top-0 h-screen overflow-hidden">
+          <div data-home-opening-image className="home-opening-image h-full w-full">
+            <img
+              src={fondoInicio}
+              alt="Panorama urbano de apertura de CIM-IA"
+              loading="eager"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div ref={mainContentRef} className="home-main-content relative">
+        <section
+          ref={heroRef}
+          className="relative overflow-hidden bg-gradient-to-br from-[#0B162C] via-blue-950 to-[#0A1120] px-4 md:px-8 lg:px-10"
+        >
         <div className="hero-orb hero-orb-red orb-drift-1" style={{ width: '520px', height: '520px', top: '-12%', right: '-8%' }} />
         <div className="hero-orb hero-orb-blue orb-drift-2" style={{ width: '400px', height: '400px', bottom: '-16%', left: '-10%' }} />
         <div
@@ -346,7 +411,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
           }}
         />
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Cimia - Inteligencia habitacional" loading="eager" className="h-full w-full object-cover opacity-20 saturate-75" />
+          <img src={heroImage} alt="CIM-IA - Inteligencia habitacional" loading="eager" className="h-full w-full object-cover opacity-20 saturate-75" />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(11,18,32,0.97)_0%,rgba(11,18,32,0.92)_30%,rgba(11,18,32,0.82)_60%,rgba(11,18,32,0.55)_100%)]" />
           <div className="absolute inset-0 opacity-[0.06]">
             <AIParticleField variant="blue" density="low" />
@@ -370,23 +435,16 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
 
         <div className="relative mx-auto grid min-h-[85vh] max-w-7xl items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex rounded-[1.4rem] border border-white/12 bg-white/8 p-3 shadow-[0_14px_34px_rgba(11,18,32,0.2)] backdrop-blur-md">
-              <img
-                src={logoMain}
-                alt="CIMIA"
-                className="h-12 w-auto object-contain sm:h-14"
-              />
-            </div>
             <div className="section-kicker border-white/15 bg-white/10 text-emerald-200">
               <span className="pulse-dot" />
               Acceso inteligente a la vivienda
             </div>
 
-            <h1 className="hero-title mt-8 text-5xl font-black text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:text-6xl lg:text-7xl" style={{ color: '#ffffff' }}>
+            <h1 className="hero-title mt-8 text-5xl font-white text-white drop-shadow-[1px_24px_rgba(0,0,0,0.35)] sm:text-6xl lg:text-7xl" style={{ color: '#ffffff' }}>
               <TypingReveal text="La IA que convierte ingresos en rutas reales de vivienda." />
             </h1>
             <p className="text-lead mt-7 max-w-2xl text-slate-100 text-lg leading-relaxed">
-              Cimia precalifica familias, explica rechazos, recomienda alternativas y entrega una narrativa comercial util para el mercado inmobiliario de Misiones.
+              CIM-IA precalifica familias, explica rechazos, recomienda alternativas y entrega una narrativa comercial util para el mercado inmobiliario de Misiones.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -542,8 +600,8 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
         <div className="relative mx-auto w-full max-w-[min(112rem,calc(100%-1.5rem))] sm:max-w-[min(112rem,calc(100%-3rem))]">
           <div className="cinematic-image-wrapper relative overflow-hidden rounded-[2rem] shadow-[0_40px_90px_rgba(11,18,32,0.34)] sm:rounded-[2.75rem]" style={{ height: 'clamp(420px, 55vh, 680px)' }}>
             <img
-              src="/forLanding1.png"
-              alt="Acceso familiar a la vivienda - Cimia"
+              src={forLanding1}
+              alt="Acceso familiar a la vivienda - CIM-IA"
               loading="eager"
               className="cinematic-hero-img absolute inset-0 h-full w-full object-cover"
               style={{ transform: 'scale(1.15)' }}
@@ -631,13 +689,13 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
               <span className="text-gradient-animated">decisiones habitacionales.</span>
             </h2>
               <p className="text-lead mt-3 text-ink-soft">
-                Cimia convierte datos dispersos en recomendaciones concretas para familias, inmobiliarias, constructoras e inversores.
+                CIM-IA convierte datos dispersos en recomendaciones concretas para familias, inmobiliarias, constructoras e inversores.
               </p>
           </div>
           <div className="hidden lg:block rounded-[2rem] border border-border bg-white/80 p-6 shadow-md float-slow">
             <div className="flex items-center gap-2 mb-4">
               <span className="pulse-dot" />
-              <span className="text-xs font-black uppercase tracking-[0.12em] text-ink-soft">Concepto de Flujo Cimia</span>
+              <span className="text-xs font-black uppercase tracking-[0.12em] text-ink-soft">Concepto de Flujo CIM-IA</span>
             </div>
             <FamilyHomeConcept variant="light" />
           </div>
@@ -727,8 +785,14 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
           <div className="hero-orb hero-orb-red" style={{ width: '280px', height: '280px', top: '-30%', right: '-10%', opacity: 0.5 }} />
           <div className="relative z-10 grid items-center gap-6 lg:grid-cols-[1fr_auto]">
             <div>
-              <p className="text-eyebrow text-emerald-300">Cimia</p>
-              {/* Added text-white class directly to prevent global dark styles from overriding visibility */}
+              <div className="mb-4 flex items-center gap-4">
+                <img
+                  src={logoFooter}
+                  alt="Logo institucional CIM-IA"
+                  className="h-16 w-16 rounded-full border border-white/15 object-cover shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
+                />
+                <p className="text-eyebrow text-emerald-300">CIM-IA</p>
+              </div>
               <h2 className="mt-3 text-4xl font-black leading-[1.08] text-white">De la consulta inmobiliaria a una ruta de acceso concreta.</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-200">
                 La plataforma ayuda a explicar capacidad de compra, priorizar opciones y detectar donde existe demanda real para nuevas operaciones.
@@ -745,9 +809,16 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
         </div>
       </section>
 
-      <footer className="border-t border-border/70 py-8 text-center text-sm text-ink-soft space-y-3">
+      <footer className="border-t border-border/70 py-8 text-center text-sm text-ink-soft space-y-4">
+        <div className="flex justify-center">
+          <img
+            src={logoFooter}
+            alt="CIM-IA"
+            className="h-20 w-20 rounded-full border border-slate-200 object-cover shadow-[0_16px_32px_rgba(15,23,42,0.12)]"
+          />
+        </div>
         <div>
-          <p className="font-bold text-text-primary">Cimia — Sistema Inteligente Misionero de Acceso a la Vivienda</p>
+          <p className="font-bold text-text-primary">CIM-IA — Sistema Inteligente Misionero de Acceso a la Vivienda</p>
           <p className="mt-1 text-xs text-ink-soft">
             Datos de precios actualizados a junio 2026. Fuentes: Zonaprop (relevamiento propio Misiones),
             IPRODHA (programas provinciales activos), BCRA (indices UVA), INDEC Censo 2022.
@@ -760,6 +831,7 @@ export default function HomeDemo({ onNavigate }: HomeDemoProps) {
           Herramienta de decision para la Camara Inmobiliaria de Misiones. Datos simulados con fines demostrativos. No constituye asesoramiento financiero.
         </p>
       </footer>
+      </div>
     </div>
   )
 }
